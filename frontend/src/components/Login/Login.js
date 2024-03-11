@@ -1,7 +1,6 @@
 import "./login.css";
 import React, { useState } from "react";
 import Navbar from "../Navbar/Navbar";
-//import { Link } from "react-router-dom";
 import FooterNew from "../Footer/FooterNew";
 
 function Login() {
@@ -11,11 +10,15 @@ function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    console.log(email, password, userRole);
-
+  
+    // Check if email or userRole is empty
+    if (!email || !password || !userRole) {
+      alert("Please fill in all fields.");
+      return;
+    }
+  
     let url = "";
-
+  
     switch (userRole) {
       case "Farmer":
         url = "http://localhost:8070/farmer/login";
@@ -25,11 +28,12 @@ function Login() {
         break;
       case "Deliveryman":
         url = "http://localhost:8070/deliveryman/login";
+        console.log(email,password,userRole)
         break;
       default:
         break;
     }
-
+  
     fetch(url, {
       method: "POST",
       crossDomain: true,
@@ -41,20 +45,26 @@ function Login() {
       body: JSON.stringify({
         email,
         password,
+        userRole,
       }),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data, "userRegister");
         if (data.status === "ok") {
-          alert("login successful");
+          alert("Login successful");
           window.localStorage.setItem("token", data.data);
-          // window.localStorage.setItem("loggedIn", true);
-
-          window.location.href = "./homepage-registeredusers";
+          window.location.href = "/homepage-registeredusers"; // Redirect to homepage based on user role
+        } else {
+          alert("Login failed. Please check your credentials.");
         }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("Login failed. Please try again later.");
       });
   }
+
   return (
     <div>
       <Navbar />
@@ -90,6 +100,19 @@ function Login() {
               />
             </div>
 
+            <div className="role">
+              <label>Role</label>
+              <select
+                className="form-control"
+                onChange={(e) => setUserRole(e.target.value)}
+              >
+                <option value="">Select Role</option>
+                <option value="Farmer">Farmer</option>
+                <option value="Seller">Seller</option>
+                <option value="Deliveryman">Deliveryman</option>
+              </select>
+            </div>
+
             <div className="checkbox-container">
               <input type="checkbox" className="checkbox" id="customCheck1" />
               <label className="text" htmlFor="customCheck1">
@@ -98,7 +121,9 @@ function Login() {
             </div>
 
             <div className="login-button-container">
-              <button className="login-button">Submit</button>
+              <button type="submit" className="login-button">
+                Submit
+              </button>
             </div>
 
             <p className="text-register">
