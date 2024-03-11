@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import KeyFeatures from "../KeyFeatures/KeyFeatures";
 import FooterNew from "../Footer/FooterNew";
-//import RegisterPage from "../Register/RegisterPage";
+import PopupRegisterPage from "../PopupComponents/PopupRegisterPage";
 
 function HomePage() {
   const [buttonPopup, setButtonPopup] = useState(false);
@@ -75,14 +75,17 @@ function HomePage() {
 
       <div className="button-container">
         <button
-          onClick={() => {
-            window.location.href = "http://localhost:3000/register";
-          }}
+          onClick={() => setButtonPopup(true)}
           className="button-register"
         >
           Join Now
         </button>
       </div>
+
+      <PopupRegisterPage
+        trigger={buttonPopup}
+        setTrigger={setButtonPopup}
+      ></PopupRegisterPage>
 
       <div className="welcome-text">
         <span className="welcome">Welcome to</span>{" "}

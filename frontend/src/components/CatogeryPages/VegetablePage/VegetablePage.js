@@ -3,11 +3,7 @@ import "./VegetablePage.css";
 import Navbar from "../../NavbarRegistered/NavbarRegistered";
 import FooterNew from "../../Footer/FooterNew";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSearch,
-  faSquarePlus,
-  faCartPlus,
-} from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 function VegetablePage() {
   const [products, setProducts] = useState([]);
@@ -29,42 +25,21 @@ function VegetablePage() {
   return (
     <div>
       <Navbar />
-      <div className="nothing-cateogory-pages-veg"></div>
-      <div className="search-container-veg">
+      <div className="nothing-cateogory-pages"></div>
+      <div className="search-container">
         <input
           type="text"
           placeholder="Search vegetables..."
-          className="search-input-veg"
+          className="search-input"
         />
-        <button className="search-button-veg">
+        <button className="search-button">
           <FontAwesomeIcon icon={faSearch} />
         </button>
-        <div>
-          <button
-            className="add-products-button"
-            onClick={() => {
-              window.location.href = "http://localhost:3000/contactadmin";
-            }}
-          >
-            <FontAwesomeIcon icon={faSquarePlus} /> {"  "} Add New Vegetable{" "}
-            {/*Add products as admin,   Chat with admin as user */}
-          </button>
-        </div>
-        <div>
-          <button
-            className="make-order-button-veg"
-            onClick={() => {
-              window.location.href = "http://localhost:3000/order";
-            }}
-          >
-            <FontAwesomeIcon icon={faCartPlus} /> {"  "} Make an Order
-          </button>
-        </div>
       </div>
-      <div className="products-container-veg">
+      <div className="products-container">
         {products.length > 0 ? (
           products.map((product) => (
-            <div className="products-item-veg" key={product._id}>
+            <div className="products-item" key={product._id}>
               <img src={product.productImage} alt={product.productName} />
               <p>{product.productName}</p>
             </div>
@@ -73,8 +48,7 @@ function VegetablePage() {
           <p>No vegetable products found.</p>
         )}
       </div>
-
-      <div className="nothing-cateogory-pages-below-veg"></div>
+      <div className="nothing-cateogory-pages-below"></div>
       <FooterNew />
     </div>
   );

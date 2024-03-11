@@ -1,0 +1,130 @@
+.popup {
+  position: fixed;
+  top: 48px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* semi-transparent black */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* to ensure it appears above other content */
+}
+
+.popup-inner {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0); /* subtle shadow */
+  max-width: 700px;
+  width: 90%;
+}
+
+.close-btn {
+  position: absolute;
+  top: 50px; /* Adjusted to 10px to align it closer to the top edge */
+  left: 960px; /* Adjusted to 10px to align it closer to the right edge */
+  width: 40px; /* Set the width to 50px */
+  height: 40px; /* Set the height to 50px */
+  background: none;
+
+  font-size: 18px;
+  cursor: pointer;
+  color: #333;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+.close-btn:hover {
+  background-color: #cb4646;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.register-container {
+  max-width: 400px;
+  margin: auto;
+}
+
+select,
+input,
+textarea,
+button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.nothing-register {
+  height: 150px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; /* this will evenly distribute the buttons */
+  margin-top: 20px; /* space between form fields and buttons */
+}
+
+.name-container {
+  display: flex;
+  gap: 10px; /* Spacing between the input fields */
+}
+/* You can add more specific styles as needed */
+
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+}
+@media only screen and (max-width: 600px) {
+  .popup-inner {
+    padding: 15px;
+    max-width: 90%;
+    height: 85vh;
+  }
+
+  .close-btn {
+    top: 20px;
+    left: 90%;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .popup-inner {
+    padding: 18px;
+    max-width: 80%;
+    height: 85vh;
+  }
+
+  .close-btn {
+    top: 40px;
+    left: 92%;
+    width: 35px;
+    height: 35px;
+    font-size: 17px;
+  }
+}
+
+/* Large Screen Styles */
+@media only screen and (min-width: 1025px) {
+  .popup-inner {
+    padding: 20px;
+    max-width: 700px;
+    height: 85vh;
+  }
+
+  .close-btn {
+    top: 50px;
+    left: 960px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+}
