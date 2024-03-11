@@ -12,8 +12,6 @@ https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Installation](#installation)
-
 
 ---
 
@@ -28,8 +26,6 @@ https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 
 
 ---
-
-## Technologies Used
 
 ## Technologies Used
 
