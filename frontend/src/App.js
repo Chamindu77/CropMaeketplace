@@ -10,12 +10,16 @@ import FarmerOrderPage from "./components/Orders/FarmerOrders/FarmerOrderPage";
 import DeliveryPostPage from "./components/Orders/DeliveryPosts/DeliveryPosts";
 import DeliverymanPage from "./components/DeliverymanPage/DeliverymanPage";
 //import Register from "./components/Register/RegisterPage";
-import PopupRegisterPage from "./components/PopupComponents/PopupRegisterPage";
+import RegisterPage from "./components/Register/RegisterPage";
 import VegetablePage from "./components/CatogeryPages/VegetablePage/VegetablePage";
 import FruitPage from "./components/CatogeryPages/FruitPage/FruitPage";
 import GrainsPage from "./components/CatogeryPages/GrainsPage/GrainsPage";
 import SpicesPage from "./components/CatogeryPages/SpicesPage/SpicesPage";
 import OtherPage from "./components/CatogeryPages/OtherPage/OtherPage";
+import RegUserHomePage from "./components/RegUserHomePage/RegUserHomePage";
+import Login from "./components/Login/Login";
+import OrderPage from "./components/OrderPage/OrderPage";
+//import CatogeryPage from "./components/CatogeryPages/CatogeryPage";
 
 function App() {
   return (
@@ -30,12 +34,15 @@ function App() {
         <Route path="/sellerorder" element={<SellerOrderPage />} />
         <Route path="/farmerorder" element={<FarmerOrderPage />} />
         <Route path="/deliverypost" element={<DeliveryPostPage />} />
-        <Route path="/register" element={<PopupRegisterPage />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/vegetable" element={<VegetablePage />} />
         <Route path="/fruit" element={<FruitPage />} />
         <Route path="/grain" element={<GrainsPage />} />
         <Route path="/spices" element={<SpicesPage />} />
         <Route path="/other" element={<OtherPage />} />
+        <Route path="/homepage-registeredusers" element={<RegUserHomePage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/order" element={<OrderPage />} />
       </Routes>
     </Router>
   );

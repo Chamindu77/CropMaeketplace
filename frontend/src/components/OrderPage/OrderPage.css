@@ -1,0 +1,73 @@
+/* OrderPage.css */
+
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-container h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="number"],
+.form-container input[type="email"],
+.form-container textarea,
+.form-container input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background-color: #0056b3;
+}
+
+.form-container input[type="text"]::placeholder,
+.form-container input[type="number"]::placeholder,
+.form-container input[type="email"]::placeholder,
+.form-container textarea::placeholder {
+  color: #aaa;
+}
+
+.form-container textarea {
+  resize: vertical;
+}
+
+.image-preview {
+  margin: 20px 0;
+  border: 1px solid #ddd; /* Light grey border */
+  display: flex;
+  justify-content: center; /* Center image horizontally */
+  align-items: center; /* Center image vertically */
+  overflow: hidden; /* Hide overflow */
+  padding: 10px;
+  background-color: #f9f9f9; /* Light background color */
+}
+
+.image-preview img {
+  max-width: 100%; /* Ensure image is not larger than container */
+  max-height: 200px; /* Set a maximum height for the image */
+  object-fit: contain; /* Ensure the aspect ratio is preserved */
+}
+
+.input-field-container {
+}
+
+/* Optional: Add more specific styles as per your design requirements */

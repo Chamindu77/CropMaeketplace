@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
 //import RegisterPopup from "../Register/RegisterPage";
-import "./HomePage.css";
+import "./RegUserHomePage.css";
 import Categories from "../Catoegories/Categories";
 //import CarouselCategory from "../Carousel/CarouselCategory";
-import TypeWriter from "../AutoWritingText/TypeWriter";
+//import TypeWriter from "../AutoWritingText/TypeWriter";
 import Video from "../ProcessLine/Video";
 //import Footer from "../Footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,75 +13,89 @@ import KeyFeatures from "../KeyFeatures/KeyFeatures";
 import FooterNew from "../Footer/FooterNew";
 //import RegisterPage from "../Register/RegisterPage";
 
-function HomePage() {
-  const [buttonPopup, setButtonPopup] = useState(false);
+function RegUserHomePage() {
+  const [userData, setUserData] = useState("");
+  const [userRole, setUserRole] = useState("");
+  useEffect(() => {
+    let url = "";
+
+    switch (userRole) {
+      case "Farmer":
+        url = "http://localhost:8070/farmer/userdata";
+        break;
+      case "Seller":
+        url = "http://localhost:8070/seller/userdata";
+        break;
+      case "Deliveryman":
+        url = "http://localhost:8070/deliveryman/userdata";
+        break;
+      default:
+        break;
+    }
+
+    fetch(url, {
+      method: "POST",
+      crossDomain: true,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({
+        token: window.localStorage.getItem("token"),
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data, "userData");
+
+        setUserData(data.data);
+
+        if (data.data === "token expired") {
+          alert("Token expired login again");
+          window.localStorage.clear();
+          window.location.href = "./login";
+        }
+      });
+  }, []);
 
   return (
     <div>
       <Navbar />
       <img
-        src={process.env.PUBLIC_URL + "/Navbar/walll.jpg"}
+        src="https://plantura.garden/uk/wp-content/uploads/sites/2/2022/04/corn-cob.jpg"
         alt=""
         className="crop"
       />
-      <div className="type-writer-container">
-        <TypeWriter
-          text="Welcome to CropXchange Digital Marketplace"
-          // "No Service Charge For Your First Order...",
-          //"Makes Your Work Easy, Fast and Transparent...",
-
-          textStyle={{
-            fontFamily: "Gill Sans",
-            fontSize: "20px",
-          }}
-        />
+      <div className="salutaion-container">
+        <h2>Hello Firstname, </h2>
       </div>
-      <div className="overlay-rectangle"></div>
-      <div className="overlay-content">
-        <p className="overlay-paragraph">Who Are You?</p>
+
+      <div className="profile-container">
         <a className="profile" href="/farmer">
           <img
-            src={process.env.PUBLIC_URL + "/Profile/farmer.png"}
-            alt=""
-            className="img"
+            src="https://thumbs.dreamstime.com/b/cheerful-farmer-organic-vegetables-garden-76739182.jpg"
+            alt="Farmer"
+            className="profile-img"
           />
+          <p className="section-name">Framer Section</p>
         </a>
-        <p className="profile-name">Farmer</p>
         <a className="profile" href="/seller">
           <img
-            src={process.env.PUBLIC_URL + "/Profile/seller.png"}
-            alt=""
-            className="img"
+            src="https://t3.ftcdn.net/jpg/01/38/55/22/360_F_138552236_dsdw41w8tuC2vmEChEay78rcYj6K6VWa.jpg"
+            alt="Seller"
+            className="profile-img"
           />
+          <p className="section-name">Framer Section</p>
         </a>
-        <p className="profile-name">Seller</p>
         <a className="profile" href="/deliveryman">
           <img
-            src={process.env.PUBLIC_URL + "/Profile/delivery.png"}
-            alt=""
-            className="img"
+            src="https://media.istockphoto.com/id/1311192458/photo/portrait-of-an-hispanic-man-doing-a-home-delivery.jpg?s=612x612&w=0&k=20&c=huHAUlFfmZeUku-h9SnMuz3-rS54Ml1rrNFKjeq60mo="
+            alt="Deliveryman"
+            className="profile-img"
           />
+          <p className="section-name">Framer Section</p>
         </a>
-        <p className="profile-name">Deliveryman</p>
-        <a className="profile" href="/both">
-          <img
-            src={process.env.PUBLIC_URL + "/Profile/both.png"}
-            alt=""
-            className="img"
-          />
-        </a>
-        <p className="profile-name">Farmer/Seller</p>
-      </div>
-
-      <div className="button-container">
-        <button
-          onClick={() => {
-            window.location.href = "http://localhost:3000/register";
-          }}
-          className="button-register"
-        >
-          Join Now
-        </button>
       </div>
 
       <div className="welcome-text">
@@ -199,18 +213,10 @@ function HomePage() {
           marketplace. There are two ways to get started:
         </p>
       </div>
-      <div className="register-container">
-        <button
-          onClick={() => setButtonPopup(true)}
-          className="button-register"
-        >
-          Register Now
-        </button>
-      </div>
 
       <FooterNew />
     </div>
   );
 }
 
-export default HomePage;
+export default RegUserHomePage;

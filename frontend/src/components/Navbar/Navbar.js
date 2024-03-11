@@ -71,7 +71,7 @@ function Navbar() {
 
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="cartitem" href="/cart">
+              <a className="cartitem" href="/register">
                 <img
                   src={process.env.PUBLIC_URL + "/Navbar/cart.png"}
                   alt=""
