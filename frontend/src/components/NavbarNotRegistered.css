@@ -1,0 +1,99 @@
+/* Add this to your existing NavbarNotRegistered.css or create a new one */
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: auto;
+}
+
+.top_nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5em;
+}
+
+.search_bar {
+  margin-left: 20px;
+}
+
+.search_bar input {
+  width: 200px;
+  padding: 8px;
+}
+
+.right ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.bottom_nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 10px 0;
+  overflow-x: auto;
+}
+
+.banner img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Media queries for responsiveness */
+
+/* Media queries for responsiveness */
+
+@media screen and (max-width: 768px) {
+  .top_nav {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .left {
+    margin-bottom: 10px;
+  }
+
+  .right {
+    order: -1;
+  }
+
+  .bottom_nav ul {
+    list-style: none;
+    display: block; /* Change flex to block */
+    gap: 20px;
+    padding: 10px 0;
+    overflow-x: auto;
+  }
+
+  /* Updated selector to match the class in your React code */
+  .bottom_nav li.dropdown {
+    position: relative;
+  }
+
+  /* Updated selector to match the class in your React code */
+  .bottom_nav li.dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+  }
+
+  /* Updated selector to match the class in your React code */
+  .bottom_nav li.dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+
+}

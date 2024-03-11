@@ -1,0 +1,226 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  line-height: 1.2;
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: auto;
+  background-color: #2d2e33;
+  padding: 60px 10%;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul p {
+  font-size: 19px;
+  color: #bdb6b6;
+}
+
+.footer-col {
+  width: 25%;
+}
+
+.footer-col h4 {
+  position: relative;
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 22px;
+  color: hwb(36 43% 22%);
+  text-transform: capitalize;
+}
+
+.footer-col h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  background-color: hwb(36 43% 22%);
+  height: 2px;
+  width: 100px;
+}
+
+ul li:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+ul li a {
+  display: block;
+  font-size: 19px;
+  text-transform: capitalize;
+  color: #bdb6b6;
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+ul li a:hover {
+  color: white;
+  padding-left: 2px;
+}
+
+.links a {
+  display: inline-block;
+  height: 44px;
+  width: 44px;
+  color: white;
+  background-color: #79ac78;
+  margin: 0 8px 8px 0;
+  text-align: center;
+  line-height: 44px;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.links a:hover {
+  color: #4d4f55;
+  background-color: white;
+}
+
+@media (max-width: 740px) {
+  .footer-col {
+    width: 50%;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .footer-col h4::before {
+    all: unset;
+  }
+}
+
+@media (max-width: 555px) {
+  .footer-col {
+    width: 100%;
+  }
+}
+
+.newsletter-input input {
+  width: 100%;
+  padding: 8px;
+  border: 0;
+  background: transparent;
+  color: #eee; /* Change this to your desired text color */
+  transition: border-color 0.3s ease-in-out;
+}
+
+.newsletter-input input:focus {
+  outline: none;
+  border-color: #fff; /* Change this to your desired focus border color */
+}
+
+.newsletter-input label {
+  position: absolute;
+  left: 8px;
+  top: 0;
+  margin-bottom: 0;
+  max-width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-top: 9px;
+  color: #eee; /* Change this to your desired text color */
+  transition: transform 0.3s ease-in-out;
+}
+
+.newsletter-input input:focus + label,
+.newsletter-input input:not(:placeholder-shown) + label {
+  transform: translate(-8px, -9px) scale(0.8);
+}
+
+/* Submit button styles */
+.newsletter-submit {
+  margin-bottom: 24px;
+}
+
+.newsletter-submit button {
+  border: 2px solid #fff; /* Change this to your desired border color */
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff; /* Change this to your desired text color */
+  background-color: transparent;
+  transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+}
+
+.newsletter-submit button:hover {
+  border-color: #fff; /* Change this to your desired hover border color */
+  background-color: #1a1a1a; /* Change this to your desired hover background color */
+  color: #fff; /* Change this to your desired hover text color */
+}
+
+/* Copyright information styles */
+.copyright-info {
+  margin-bottom: 24px;
+}
+
+/* Links section styles */
+.links-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.links-section h5 {
+  margin-bottom: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.links-section ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.links-section li {
+  margin-bottom: 8px;
+}
+
+.links-section a {
+  color: #fff; /* Change this to your desired link color */
+  text-decoration: none;
+}
+
+.links-section a:hover {
+  text-decoration: underline;
+}
+
+/* Copyright section styles */
+.copyright-section {
+  width: 100%;
+  padding: 16px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.copyright-section a {
+  color: #fff; /* Change this to your desired link color */
+  text-decoration: none;
+}
+
+.copyright-section a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  footer {
+    padding: 40px 5%;
+  }
+}
+
+/* Adjust styles for smaller screens */
+@media screen and (max-width: 576px) {
+  footer {
+    padding: 20px 5%;
+  }
+}

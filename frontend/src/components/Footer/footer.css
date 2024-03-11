@@ -1,0 +1,102 @@
+/* footer.css */
+
+.footer {
+  background-color: #79AC78;
+  width: 100%; /* Set width to 100% for responsiveness */
+  color: white;
+}
+
+.get-connected {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.get-connected-text {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.get-connected-span {
+  font-size: 18px;
+}
+
+.icon {
+  margin: 10px;
+  color: white;
+  font-size: 20px;
+}
+
+.container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    text-align: left !important; /* Use !important to ensure higher specificity */
+  }
+}
+
+.container-row {
+  display: flex;
+  flex-wrap: wrap; /* Wrap items to the next row if needed */
+}
+
+.container-row-column1,
+.container-row-column2,
+.container-row-column3 {
+  flex: 1; /* Take up available space */
+  max-width: calc(33.333% - 30px); /* 30px for margin between columns */
+  margin-right: 20px; /* Add margin between columns */
+  flex-direction: column;
+}
+
+.topic {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.leaf {
+  padding-right: 10px;
+  font-size: 18px;
+}
+
+.leaf-para {
+  width: 270px;
+}
+
+.container-row-column1 {
+  margin-left: 10px; /* Add margin between columns */
+}
+
+.container-row-column2,
+.container-row-column3 {
+  margin-left: 20px; /* Add margin between columns */
+}
+
+.copyright {
+  text-align: center;
+  padding: 20px;
+  background-color: hsl(30, 27%, 53%);
+  color: white;
+}
+@media (max-width: 768px) {
+  .container {
+    text-align: center;
+  }
+  .container-row-column1,
+  .container-row-column2,
+  .container-row-column3 {
+    max-width: 100%; /* Set the maximum width to the full width */
+    margin-right: 0; /* Remove the right margin */
+  }
+}
+
+/* Styles for screens larger than 768px */
+@media (min-width: 768px) {
+  .container {
+    text-align: left;
+  }
+}

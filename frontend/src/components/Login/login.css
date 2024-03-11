@@ -1,0 +1,99 @@
+.login-container {
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 50px 10px 50px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  margin-top: 125px;
+  margin-bottom: 50px;
+}
+
+.login-inner-container {
+  width: 50%; /* Take up half of the container */
+  padding-left: 75px; /* Add some spacing */
+}
+
+.login-image {
+  width: 40%; /* Take up half of the container */
+  text-align: center; /* Center the image horizontally */
+}
+
+.img-login {
+  max-width: 100%;
+  width: 450px;
+  height: 450px;
+  border-radius: 26px;
+  margin-left: 20px;
+  /* Ensure the image doesn't overflow */
+}
+.login-inner-container h3 {
+  margin-bottom: 40px;
+  color: #333;
+  text-align: center;
+}
+
+.email label {
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.email input,
+.password input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.email ::placeholder,
+.password ::placeholder {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px 100px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #79ac78;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 100px;
+}
+
+.login-button:hover {
+  background-color: #b7ceb7;
+}
+
+.checkbox-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.checkbox {
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.text {
+  margin-left: 10px;
+}
+
+.text-register {
+  margin-top: 50px;
+}

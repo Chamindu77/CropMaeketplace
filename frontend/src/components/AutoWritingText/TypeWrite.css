@@ -1,0 +1,51 @@
+.typewriter-container {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 0.15em solid #000; /* Adjust border style as needed */
+  white-space: nowrap;
+  margin: 0 auto;
+  display: flex;
+}
+
+.typewriter-text {
+  animation: typing 5s steps(20, end), blinking-cursor 0.5s step-end infinite;
+  color: #d2e3c8;
+  width: auto;
+}
+
+/* TypeWrite.css */
+.typewriter-text {
+  font-size: 70px;
+  font-weight: 700;
+  width: auto; /* Use relative units for responsiveness */
+}
+
+/* Add media query for responsiveness */
+@media screen and (max-width: 900px) {
+  .type-writer-container {
+    max-width: 70%; /* Adjust as needed for smaller screens */
+  }
+
+  .typewriter-text {
+    font-size: 50px; /* Adjust font size for smaller screens */
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blinking-cursor {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #000;
+  }
+}

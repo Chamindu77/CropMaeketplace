@@ -1,0 +1,88 @@
+.nothing {
+  width: 100%;
+  height: 74px;
+}
+
+.crop-container {
+  width: 100%;
+  height: 455px;
+  overflow: hidden;
+}
+
+.crop-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* This property sets the alignment to the top */
+}
+/* FarmerPage.css */
+.type-writer-container {
+  position: absolute;
+  top: 20%; /* Adjust as needed */
+  left: 10%; /* Adjust as needed */
+
+  max-width: 40%;
+  display: flex;
+}
+
+.writer {
+  font-size: 25px; /* Adjust font size */
+  font-weight: 700;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.categories-div {
+  margin: 0 0 0 0;
+
+  width: auto;
+}
+.first-word {
+  font-size: 24px;
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+}
+
+.second-word {
+  font-size: 24px;
+  color: #79ac78;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+}
+
+.request-product {
+  padding: 10px 15px; /* Adjust padding to reduce width */
+  border-radius: 10px;
+  background-color: hsl(49, 37%, 62%);
+  border: none;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  max-width: 250px; /* Set a maximum width */
+  overflow: hidden; /* Hide any content that exceeds the max-width */
+  white-space: nowrap; /* Prevent wrapping of text */
+  margin: 0;
+}
+
+.plus {
+  font-size: 25px;
+  font-weight: 500px;
+  margin-right: 10px;
+}
+
+/* Add this style to your CSS file */
+.product-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px; /* Adjust as needed, or use 'space-around' or 'space-evenly' */
+}
+.go-to-page {
+  font-size: 25px;
+  font-weight: 500px;
+  margin-right: 10px;
+  width: auto;
+  height: 50px;
+}

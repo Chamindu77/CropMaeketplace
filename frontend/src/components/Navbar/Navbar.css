@@ -1,0 +1,86 @@
+.navbar {
+  font-family: "Open Sans", sans-serif;
+  background-color: #79ac78;
+  color: black;
+}
+
+.navbar-icon {
+  width: 320px;
+  height: 50px;
+}
+
+.cart {
+  height: 35px;
+  width: 35px;
+  margin-top: 5px;
+  margin-right: 40px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.cart:hover {
+  transform: scale(1.2);
+}
+
+.login {
+  padding: 10px;
+  border-radius: 10px;
+  margin-right: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #ced4d7; /* Choose your preferred color */
+  color: #0c0b0b; /* Set text color to contrast with the background */
+  text-decoration: none; /* Remove default underline for links */
+  display: inline-block;
+  transition: transform 0.3s ease-in-out;
+}
+.login:hover {
+  transform: scale(1.2);
+}
+
+.home {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0c0b0b;
+  transition: transform 0.3s ease-in-out;
+  text-decoration: none;
+  margin-top: 0px;
+  margin-right: 20px;
+}
+.home:hover {
+  transform: scale(1.2);
+}
+.menu {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0c0b0b;
+  transition: transform 0.3s ease-in-out;
+  text-decoration: none;
+  margin-top: 0px;
+  margin-right: 20px;
+}
+
+.dropdown-menu {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0c0b0b;
+  transition: transform 0.3s ease-in-out;
+  text-decoration: none;
+  margin-top: 0px;
+  margin-right: 20px;
+}
+.dropdown-item:hover {
+  transform: scale(1.1);
+}
+.about {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0c0b0b;
+  transition: transform 0.3s ease-in-out;
+  text-decoration: none;
+  margin-top: 0px;
+  margin-right: 20px;
+}
+
+.about:hover {
+  transform: scale(1.2);
+}

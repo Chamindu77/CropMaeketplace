@@ -1,0 +1,70 @@
+/* keyFeatures.css */
+
+.container {
+    padding: 20px;
+  }
+  
+  .features-row {
+    margin-top: 20px;
+  }
+  
+  .col_adv {
+    margin-bottom: 20px;
+    padding-top: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .col_adv:hover {
+    background-color: hwb(100 69% 15%);
+    
+  }
+  
+  .container--img {
+    position: relative;
+    left: 25%;
+  }
+  
+  .img--base{
+    width: 150px;
+    height: 150px;
+    display: flex;
+
+  }
+  .img--top {
+    width: 100px;
+    height: 100px;
+    display: flex;
+  }
+  
+  .img--top {
+    position: absolute;
+    top: 15%;
+    left: 9%;
+    
+  }
+  
+  .container-feature_subtitle {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .container-feature_text {
+    margin-top: 5px;
+    color: #666;
+  }
+
+  @media screen and (max-width: 900px) {
+    
+      .container--img {
+        position: relative;
+        left: 30%;
+      }
+
+      .img--top {
+        position: absolute;
+        top: 15%;
+        left: 7%;
+        
+      }
+}
+  

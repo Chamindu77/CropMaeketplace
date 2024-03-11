@@ -1,0 +1,235 @@
+.nothing {
+  width: 100%;
+  height: 74px;
+}
+
+.crop-container {
+  width: 100%;
+  height: 455px;
+  overflow: hidden;
+}
+
+.crop-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* This property sets the alignment to the top */
+}
+/* FarmerPage.css */
+.type-writer-container {
+  position: absolute;
+  top: 25%; /* Adjust as needed */
+  left: 10%; /* Adjust as needed */
+  max-width: 30%;
+  display: flex;
+}
+
+.writer {
+  font-size: 25px; /* Adjust font size */
+  font-weight: 700;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.categories-container {
+  display: flex; /* Use flexbox for layout */
+  align-items: center;
+  justify-content: center; /* Center align vertically */
+
+  /* Spreads out the two items in the container */
+
+  /* Optional: Add some space below if needed */
+}
+
+.request-product {
+  padding: 10px 15px; /* Adjust padding to reduce width */
+  border-radius: 10px;
+  background-color: hsl(49, 37%, 62%);
+  border: none;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  max-width: 250px; /* Set a maximum width */
+  overflow: hidden; /* Hide any content that exceeds the max-width */
+  white-space: nowrap;
+  /* Prevent wrapping of text */
+}
+
+.request-product:hover {
+  color: black;
+}
+
+.categories-div {
+  width: auto;
+  padding-right: 30px;
+}
+.first-word {
+  font-size: 24px;
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+}
+
+.second-word {
+  font-size: 24px;
+  color: #79ac78;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+}
+
+/* Add this style to your CSS file */
+.product-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px; /* Adjust as needed, or use 'space-around' or 'space-evenly' */
+}
+.go-to-page {
+  font-size: 25px;
+  font-weight: 500px;
+  margin-right: 10px;
+  width: auto;
+  height: 50px;
+}
+
+.topic p {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 4px;
+  border: 4px solid #79ac78;
+  width: 300px;
+  padding-left: 30px;
+  border-radius: 0 15px 0 15px;
+  margin-top: 10px;
+  margin-left: 40px;
+}
+
+.orders-wrapper {
+  display: flex;
+  justify-content: center; /* centers the content horizontally */
+  align-items: flex-start;
+  padding-top: 30px;
+  padding-bottom: 70px; /* aligns items to the top of the container */
+}
+.orders-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 0; /* Adjust the padding as needed */
+}
+
+.view-all-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none; /* removes default underline for links */
+  transition: background-color 0.3s;
+}
+
+.view-all-button1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+  margin-right: 50px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none; /* removes default underline for links */
+  transition: background-color 0.3s;
+}
+
+.view-all-button1:hover {
+  background-color: #79ac78;
+  color: #fff;
+}
+
+.view-all-button:hover {
+  background-color: #79ac78;
+  color: #fff;
+}
+
+.arrow-icon {
+  margin-left: 10px; /* space between the text and the icon */
+}
+
+.order-item {
+  width: calc(
+    20% - 20px
+  ); /* 25% to ensure 4 items in a row and -20px to account for the gap */
+  box-sizing: border-box; /* includes padding and border in the element's total width and height */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* optional: adds a slight shadow for depth */
+  transition: transform 0.3s ease-in-out; /* smooth transition on hover */
+}
+
+.order-item1 {
+  width: calc(
+    23% - 20px
+  ); /* 25% to ensure 4 items in a row and -20px to account for the gap */
+  box-sizing: border-box; /* includes padding and border in the element's total width and height */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* optional: adds a slight shadow for depth */
+  transition: transform 0.3s ease-in-out; /* smooth transition on hover */
+}
+
+.order-item:hover {
+  transform: scale(
+    1.01
+  ); /* slightly scale up the card on hover for a zoom effect */
+}
+
+.order-image {
+  width: 100%;
+  height: 200px; /* you can adjust this as per your preference */
+  object-fit: cover; /* ensures the image covers the entire container without stretching */
+  border-radius: 8px 8px 0 0; /* rounded corners for the top */
+}
+
+.order-item p {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.cart-button,
+.supply-button {
+  display: block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #79ac78; /* blue color for buttons, you can adjust as needed */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out; /* smooth transition on hover */
+}
+
+.cart-button:hover,
+.supply-button:hover {
+  background-color: #0056b3; /* slightly darker shade on hover */
+}
+
+/* FontAwesome Icons */
+.fa-shopping-cart,
+.fa-truck {
+  margin-right: 5px;
+}
+.nothing2 {
+  margin-top: 40px;
+}
