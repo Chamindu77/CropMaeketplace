@@ -2,99 +2,111 @@ const router = require("express").Router();
 const Farmer = require("../model/Farmer");
 
 const bcrypt = require("bcryptjs");
-
+const { body, validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = "78rfrbrefhadnbfrf6y9u0jjpm'[khuuv8f93fuqwhisbedfv8w2bdeb";
 
 //done by farmer
 //http://localhost:8070/farmer/register
-router.route("/register").post(async (req, res) => {
-  try {
-    const { userRole, fname, lname, email, password, district } = req.body;
-
-    const encryptedPassword = await bcrypt.hash(password, 10);
-
-    const primaryKey = email + userRole;
-
-    const oldFarmer = await Farmer.findOne({ primaryKey });
-    if (oldFarmer) {
-      return res.status(400).send({ error: "This user already exists!" });
+router.post(
+  "/register",
+  [
+    body("userRole").notEmpty().withMessage("User role is required"),
+    body("fname").notEmpty().withMessage("First name is required"),
+    body("lname").notEmpty().withMessage("Last name is required"),
+    body("email").notEmpty().withMessage("Email is required").isEmail().withMessage("Invalid email"),
+    body("password")
+      .notEmpty().withMessage("Password is required")
+      .isLength({ min: 6 }).withMessage("Password must be at least 6 characters long"),
+    body("district").notEmpty().withMessage("District is required"),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
     }
 
-    const newFarmer = new Farmer({
-      userRole,
-      fname,
-      lname,
-      email,
-      district,
-      password: encryptedPassword,
-      primaryKey,
-    });
+    try {
+      const { userRole, fname, lname, email, password, district } = req.body;
+      const encryptedPassword = await bcrypt.hash(password, 10);
+      const primaryKey = email + userRole;
 
-    await newFarmer.save();
+      const oldFarmer = await Farmer.findOne({ primaryKey });
+      if (oldFarmer) {
+        return res.status(400).json({ error: "This Farmer already exists!" });
+      }
 
-    res.status(201).json({
-      message: "New farmer added successfully!",
-      data: {
-        userRole: newFarmer.userRole,
-        fname: newFarmer.fname,
-        lname: newFarmer.lname,
-        email: newFarmer.email,
-        district: newFarmer.district,
-        password: newFarmer.password,
-      },
-    });
-  } catch (error) {
-    console.error("Error registering farmer:", error);
-    res.status(500).json({ error: "Server error. Failed to register farmer." });
+      const newFarmer = new Farmer({
+        userRole,
+        fname,
+        lname,
+        email,
+        district,
+        password: encryptedPassword,
+        primaryKey,
+      });
+
+      await newFarmer.save();
+
+      res.status(201).json({
+        message: "New farmer added successfully!",
+        data: {
+          userRole: newFarmer.userRole,
+          fname: newFarmer.fname,
+          lname: newFarmer.lname,
+          email: newFarmer.email,
+          district: newFarmer.district,
+          password: newFarmer.password,
+        },
+      });
+    } catch (error) {
+      console.error("Error registering farmer:", error);
+      res.status(500).json({
+        error: "Server error. Failed to register farmer.",
+      });
+    }
   }
-});
+);
 
 //done by farmer
 //http://localhost:8070/farmer/login
-router.route("/login").post(async (req, res) => {
+// Login route for a farmer
+router.post("/login", async (req, res) => {
   try {
     const { email, password, userRole } = req.body;
     const primaryKey = email + userRole;
     const oldFarmer = await Farmer.findOne({ primaryKey });
 
     if (!oldFarmer) {
-      return res
-        .status(400)
-        .json({ error: "This user has not been registered!" });
+      return res.status(400).json({ error: "This user has not been registered!" });
     }
 
-    if (bcrypt.compare(password, oldFarmer.password)) {
+    const isPasswordMatch = await bcrypt.compare(password, oldFarmer.password);
+    if (isPasswordMatch) {
       const token = jwt.sign({ email: oldFarmer.email }, JWT_SECRET);
       return res.status(200).json({ status: "ok", data: token });
     } else {
-      return res
-        .status(401)
-        .json({ status: "error", error: "Invalid Password" });
+      return res.status(401).json({ status: "error", error: "Invalid Password" });
     }
   } catch (error) {
     console.error(error);
-    return res
-      .status(500)
-      .json({ status: "error", error: "An error occurred during login" });
+    return res.status(500).json({ status: "error", error: "An error occurred during login" });
   }
 });
 
 //done by farmer
-router.route("/userdata", async (req, res) => {
+router.post("/userdata", async (req, res) => {
   const { token } = req.body;
 
   try {
     const farmer = jwt.verify(token, JWT_SECRET);
     const farmerEmail = farmer.email;
-    Farmer.findOne(
-      { email: farmerEmail }.then((data) => {
-        res.send({ status: "ok", data: data });
-      })
-    ).catch((error) => {
-      res.send({ status: "error", data: error });
-    });
-  } catch (error) {}
+    const data = await Farmer.findOne({ email: farmerEmail });
+    res.send({ status: "ok", data: data });
+  } catch (error) {
+    console.error(error);
+    res.send({ status: "error", data: error });
+  }
 });
 
 //done by admin

@@ -17,13 +17,17 @@ const deliverymanSchema = new Schema({
   email: {
     type: String,
   },
+  district: {
+    type: String,
 
   password: {
     type: String,
   },
 
-  district: {
+  },
+  primaryKey: {
     type: String,
+    unique: true,
   },
 });
 

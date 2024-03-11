@@ -17,12 +17,10 @@ const farmerSchema = new Schema({
   email: {
     type: String,
   },
-
-  password: {
+  district: {
     type: String,
   },
-
-  district: {
+  password: {
     type: String,
   },
 
