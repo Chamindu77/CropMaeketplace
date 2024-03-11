@@ -30,15 +30,15 @@ https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png)
 ## Technologies Used
 
 - **Frontend**:
-  -React.js: JavaScript library for building user interfaces.
-  -Bootstrap: Frontend framework for responsive design.
-  -Axios: Promise-based HTTP client for making requests to the backend API.
-  -React Router DOM: Declarative routing for React applications.
-  -React Bootstrap: Bootstrap components built with React.
-  -React Icons: Icon library for React applications.
-  -React Hook Form: Performant, flexible and extensible forms with easy-to-use validation.
-  -FontAwesome: Icon library for React applications.
-  -Web Vitals: Library for measuring web performance metrics.
+  - React.js: JavaScript library for building user interfaces.
+  - Bootstrap: Frontend framework for responsive design.
+  - Axios: Promise-based HTTP client for making requests to the backend API.
+  - React Router DOM: Declarative routing for React applications.
+  - React Bootstrap: Bootstrap components built with React.
+  - React Icons: Icon library for React applications.
+  - React Hook Form: Performant, flexible and extensible forms with easy-to-use validation.
+  - FontAwesome: Icon library for React applications.
+  - Web Vitals: Library for measuring web performance metrics.
 
 - **Backend**:
   - Node.js: JavaScript runtime environment for server-side development
