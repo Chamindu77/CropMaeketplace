@@ -87,6 +87,7 @@ export default function SignUp() {
                 {...register("lname", { required: true })}
               />
               {errors.lname && <span className="error">Last name is required</span>}
+              
             </div>
 
             <div className="email">
