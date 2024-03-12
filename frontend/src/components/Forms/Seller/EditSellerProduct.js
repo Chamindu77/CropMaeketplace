@@ -2,8 +2,6 @@ import React, { useState,useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEraser, faMobileAlt, faPhoneAlt, faCalendarAlt, faPlusCircle, faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import NavbarRegistered from "../../NavbarRegistered/NavbarRegistered";
-//import FooterNew from "../../Footer/FooterNew";
 import './sellerProduct.css';
 import { useLocation } from "react-router-dom";
 

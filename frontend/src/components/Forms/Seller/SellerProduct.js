@@ -1,11 +1,7 @@
 import React, { useState,useEffect } from 'react';
-//import DatePicker from 'react-datepicker';
-//import 'react-datepicker/dist/react-datepicker.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEraser, faMobileAlt, faPhoneAlt, faCalendarAlt, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import NavbarRegistered from "../../NavbarRegistered/NavbarRegistered";
-//import FooterNew from "../../Footer/FooterNew";
 import './OrderPage.css'
 import { useLocation } from "react-router-dom";
 
