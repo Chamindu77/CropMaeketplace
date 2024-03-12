@@ -3,11 +3,11 @@
   justify-content: center; /* Center content horizontally */
   align-items: center; /* Center content vertically */
   width: 100%;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
-  /*padding: 50px 50px 50px 10px;*/
-  border: 3px solid #ccc;
-  border-radius: 10px;
+  padding: 50px 10px 50px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   background-color: #f9f9f9;
   margin-top: 125px;
   margin-bottom: 50px;
@@ -15,14 +15,11 @@
 
 .login-inner-container {
   width: 50%; /* Take up half of the container */
-  padding: 50px 75px 50px 75px; /* Add some spacing */
-  background-color: #D5FB97;
-  border-radius: 0 10px 10px 0;
-  /*margin: -50px 0px -50px -50px;*/
+  padding-left: 75px; /* Add some spacing */
 }
 
 .login-image {
-  width: 60%; /* Take up half of the container */
+  width: 40%; /* Take up half of the container */
   text-align: center; /* Center the image horizontally */
 }
 
@@ -31,16 +28,18 @@
   width: 450px;
   height: 450px;
   border-radius: 26px;
-  margin-left: 0px;
+  margin-left: 20px;
   /* Ensure the image doesn't overflow */
 }
+
 .login-inner-container h3 {
   margin-bottom: 40px;
   color: #333;
   text-align: center;
 }
 
-.email label {
+.email label,
+.password label {
   margin-left: 10px;
   margin-bottom: 5px;
 }
@@ -76,7 +75,7 @@
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
-  margin-left: 0px;
+  margin-left: 100px;
 }
 
 .login-button:hover {
