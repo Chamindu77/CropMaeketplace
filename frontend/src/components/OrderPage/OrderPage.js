@@ -123,6 +123,7 @@ const FarmerProduct = () => {
           <div className="col-sm-4">
             <input type="number" id="quantity" className="form-control form-control-sm" min="0" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
           </div>
+          
           <div className="col-sm-4 d-flex align-items-center">
             <div className="form-check form-check-inline">
               <input className="form-check-input" type="radio" name="quantityType" id="kg" value="kg" checked={quantityType === 'kg'} onChange={() => setQuantityType('kg')} />
@@ -134,15 +135,17 @@ const FarmerProduct = () => {
             </div>
           </div>
         </div>
+
         <div className="mb-3 row align-items-center">
-  <label htmlFor="price" className="col-sm-3 col-form-label">Price:</label>
-  <div className="col-sm-4">
-    <div className="input-group input-group-sm">
-      <input type="number" id="price" className="form-control" value={price} onChange={(e) => setPrice(e.target.value)} />
-      <span className="input-group-text bg-light">per kg</span>
-    </div>
-  </div>
-</div>
+            <label htmlFor="price" className="col-sm-3 col-form-label">Price:</label>
+            <div className="col-sm-4">
+              <div className="input-group input-group-sm">
+                <input type="number" id="price" className="form-control" value={price} onChange={(e) => setPrice(e.target.value)} />
+                <span className="input-group-text bg-light">per kg</span>
+              </div>
+            </div>
+          </div>
+
         <div className="mb-3 row align-items-center">
           <label htmlFor="district" className="col-sm-3 col-form-label">District:</label>
           <div className="col-sm-4">
@@ -170,12 +173,14 @@ const FarmerProduct = () => {
           </div>
         </div>
       </div>
+
         <div className="mb-3 row align-items-center">
           <label htmlFor="email" className="col-sm-3 col-form-label">Email:</label>
           <div className="col-sm-6">
             <input type="email" id="email" className="form-control form-control-sm" value={email} onChange={(e) => setEmail(e.target.value)} />
           </div>
         </div>
+
         <div className="mb-3 row align-items-center">
           <label htmlFor="address" className="col-sm-3 col-form-label">Address:</label>
           <div className="col-sm-9">
@@ -216,6 +221,7 @@ const FarmerProduct = () => {
             </button>
           </div>
         </div>
+
       </form>
       </div>
       </div>
