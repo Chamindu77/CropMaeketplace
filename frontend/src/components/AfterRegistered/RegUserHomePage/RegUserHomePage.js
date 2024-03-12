@@ -78,7 +78,7 @@ function RegUserHomePage() {
             alt="Farmer"
             className="profile-img"
           />
-          <p className="section-name">Framer Section</p>
+          <p className="section-name">Farmer Section</p>
         </a>
         <a className="profile" href="/regseller">
           <img
@@ -86,7 +86,7 @@ function RegUserHomePage() {
             alt="Seller"
             className="profile-img"
           />
-          <p className="section-name">Framer Section</p>
+          <p className="section-name">Seller Section</p>
         </a>
         <a className="profile" href="/regdeliveryman">
           <img
@@ -94,7 +94,7 @@ function RegUserHomePage() {
             alt="Deliveryman"
             className="profile-img"
           />
-          <p className="section-name">Framer Section</p>
+          <p className="section-name">Delivery Section</p>
         </a>
       </div>
 

@@ -1,57 +1,6 @@
-.container {
-  max-width: 1000px;
-  padding: 20px;
-}
-
-
-.text-center h2 {
-  margin-bottom: 20px;
-}
-
-
-.border {
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-}
-
-.btn-secondary {
-  background-color: #003300;
-  color: white;
-  margin-right: 10px; 
-}
-
-.btn-success {
-  background-color: #003300;
-  color: white;
-}
-
-
-.btn-secondary {
-background-color: #808080;
-color: white;
-margin-right: 10px; 
-}
-
-.btn-success {
-background-color: #006400;
-color: white;
-}
-
-.btn-danger {
-background-color: #FF0000;
-color: white;
-}
-
-/* Style for the image */
-.image {
-  min-width: 450px; 
-  min-height: 250px;
-}
-
-
 
 /*
- OrderPage.css 
+ OrderPage.css*/ 
 
 .form-container {
   max-width: 500px;
@@ -105,19 +54,19 @@ color: white;
 
 .image-preview {
   margin: 20px 0;
-  border: 1px solid #ddd; /* Light grey border 
+  border: 1px solid #ddd; /* Light grey border */
   display: flex;
-  justify-content: center; /* Center image horizontally 
-  align-items: center; /* Center image vertically 
-  overflow: hidden; /* Hide overflow 
+  justify-content: center; /* Center image horizontally */
+  align-items: center; /* Center image vertically */
+  overflow: hidden; /* Hide overflow */
   padding: 10px;
-  background-color: #f9f9f9; /* Light background color 
+  background-color: #f9f9f9; /* Light background color */
 }
 
 .image-preview img {
-  max-width: 100%; /* Ensure image is not larger than container 
-  max-height: 200px; /* Set a maximum height for the image 
-  object-fit: contain; /* Ensure the aspect ratio is preserved 
+  max-width: 100%; /* Ensure image is not larger than container */
+  max-height: 200px; /* Set a maximum height for the image */
+  object-fit: contain; /* Ensure the aspect ratio is preserved */
 }
 
 .input-field-container {

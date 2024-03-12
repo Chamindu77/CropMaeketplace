@@ -115,12 +115,12 @@ const EditSellerProduct = () => {
           <h2>Edit Your Order Post</h2>
             </div>
             
-          <div className="mb-3 row">
-                <div className="col-sm-12">
-                  {/* Space for displaying picture */}
-                  {/* <img src={pictureUrl} alt="Product" className="img-fluid" /> */}
-                </div>
-                </div>
+            <div className="mb-3 row justify_content-center">
+      <div className="col-sm-12 text-center">
+            {/* Space for displaying picture */}
+            <img className='image' src={formData.productImage} alt="Product" />
+      </div>
+      </div>
           <form>
             <div className="mb-3 row align-items-center">
               <label htmlFor="quantity" className="col-sm-2 col-form-label">Quantity:</label>

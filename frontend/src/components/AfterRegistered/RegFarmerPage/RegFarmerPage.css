@@ -126,7 +126,7 @@
   margin-top: 200px;
 
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #070707;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -142,7 +142,7 @@
   margin-top: 200px;
   margin-right: 50px;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #070707;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -152,12 +152,12 @@
 }
 
 .view-all-button1:hover {
-  background-color: #79ac78;
+  background-color: #858885;
   color: #fff;
 }
 
 .view-all-button:hover {
-  background-color: #79ac78;
+  background-color: #858885;
   color: #fff;
 }
 
@@ -207,22 +207,38 @@
   margin-bottom: 5px;
 }
 
-.cart-button,
+.cart-button{
+  
+    display: block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5e5f5e; /* blue color for buttons, you can adjust as needed */
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out; /* smooth transition on hover */
+  
+  
+}
 .supply-button {
   display: block;
   margin-top: 10px;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
-  background-color: #79ac78; /* blue color for buttons, you can adjust as needed */
+  background-color: #055f03; /* blue color for buttons, you can adjust as needed */
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out; /* smooth transition on hover */
 }
 
-.cart-button:hover,
+.cart-button:hover
+{
+  background-color: #a6a7a8; /* slightly darker shade on hover */
+}
 .supply-button:hover {
-  background-color: #0056b3; /* slightly darker shade on hover */
+  background-color: #7bd440; /* slightly darker shade on hover */
 }
 
 /* FontAwesome Icons */
