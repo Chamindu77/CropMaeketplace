@@ -84,6 +84,18 @@ const FarmerProduct = () => {
       .catch((error) => console.error("Error fetching items:", error));
   };
 
+<<<<<<< Updated upstream
+=======
+  return (
+    <div className="form-container">
+      <h3>Place New Order</h3>
+      <form onSubmit={handleSubmit}>
+        {formData.productImage && (
+          <div className="image-preview">
+            <img src={formData.productImage} alt="Product" />
+          </div>
+        )}
+>>>>>>> Stashed changes
 
   const handleClear = () => {
     setSelectedDistrict('');
