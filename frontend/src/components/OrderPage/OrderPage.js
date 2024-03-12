@@ -1,32 +1,8 @@
-import React, { useState,useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEraser, faMobileAlt, faPhoneAlt, faCalendarAlt, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../Forms/Seller/sellerProduct.css';
+import React, { useState, useEffect } from "react";
+import "./OrderPage.css";
 import { useLocation } from "react-router-dom";
-import DatePicker from 'react-datepicker'; 
-import 'react-datepicker/dist/react-datepicker.css';
 
-
-
-const FarmerProduct = () => {
-  const [selectedDistrict, setSelectedDistrict] = useState('');
-  const [quantityType, setQuantityType] = useState('kg');
-  const [quantity, setQuantity] = useState('');
-  const [landline, setLandline] = useState('');
-  const [mobile, setMobile] = useState('');
-  const [email, setEmail] = useState('');
-  const [address, setAddress] = useState('');
-  const [expireDate, setExpireDate] = useState(null);
-  const [calendarOpen, setCalendarOpen] = useState(false); 
-  const [price, setPrice] = useState('');
-
-  const districts = [
-    'Galle', 'Hambantota', 'Matara', 'Kalutara', 'Colombo', 'Gampaha', 'Kandy', 'Matale', 'Nuwara Eliya',
-    'Jaffna', 'Mannar', 'Vavuniya', 'Mullaitivu', 'Kilinochchi', 'Batticaloa', 'Ampara', 'Trincomalee',
-    'Kurunegala', 'Puttalam', 'Anuradhapura', 'Polonnaruwa', 'Badulla', 'Monaragala', 'Ratnapura', 'Kegalle'
-  ];
-
+function AddProductPage() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const [formData, setFormData] = useState({
@@ -45,6 +21,7 @@ const FarmerProduct = () => {
   });
 
   const [items, setItems] = useState([]);
+
   useEffect(() => {
     // Fetch items based on selected category
     fetchItems(formData.category);
@@ -69,9 +46,16 @@ const FarmerProduct = () => {
       }));
     }
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+    // You can handle form submission logic here, like sending data to the backend
+  };
+
   const fetchItems = (category) => {
     // Fetch items based on category and update the items state
-    fetch('http://localhost:8070/product?category=${category}')
+    fetch(`http://localhost:8070/product?category=${category}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -84,157 +68,119 @@ const FarmerProduct = () => {
       .catch((error) => console.error("Error fetching items:", error));
   };
 
-<<<<<<< Updated upstream
-=======
   return (
     <div className="form-container">
-      <h3>Place New Order</h3>
+      <h3>Place new Order</h3>
       <form onSubmit={handleSubmit}>
         {formData.productImage && (
           <div className="image-preview">
             <img src={formData.productImage} alt="Product" />
           </div>
         )}
->>>>>>> Stashed changes
 
-  const handleClear = () => {
-    setSelectedDistrict('');
-    setQuantity('');
-    setLandline('');
-    setMobile('');
-    setEmail('');
-    setAddress('');
-    setExpireDate(null);
-    setPrice('');
-  };
-
-  const handleSubmit = () => {
-    console.log('Form Submitted!');
-    handleClear();
-  };
-
-  return (
-    <div>
-    <div className="container mt-4"></div>
-    <div className="container mt-5">
-    <div className="border p-4 rounded">
-      <div className="text-center mb-4">
-        <h2>Create Your Product Post</h2>
-      </div>
-      
-      <div className="mb-3 row justify_content-center">
-      <div className="col-sm-12 text-center">
-            {/* Space for displaying picture */}
-            <img className='image' src={formData.productImage} alt="Product" />
-      </div>
-      
-      </div>
-      <form>
-      <div className="mb-3 row align-items-center">
-          <label htmlFor="quantity" className="col-sm-3 col-form-label">Quantity:</label>
-          <div className="col-sm-4">
-            <input type="number" id="quantity" className="form-control form-control-sm" min="0" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
-          </div>
-          <div className="col-sm-4 d-flex align-items-center">
-            <div className="form-check form-check-inline">
-              <input className="form-check-input" type="radio" name="quantityType" id="kg" value="kg" checked={quantityType === 'kg'} onChange={() => setQuantityType('kg')} />
-              <label className="form-check-label" htmlFor="kg">kg</label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input className="form-check-input" type="radio" name="quantityType" id="count" value="count" checked={quantityType === 'count'} onChange={() => setQuantityType('count')} />
-              <label className="form-check-label" htmlFor="count">count</label>
-            </div>
-          </div>
+        <div className="input-field-container">
+          <p>Product Category</p>
         </div>
-        <div className="mb-3 row align-items-center">
-  <label htmlFor="price" className="col-sm-3 col-form-label">Price:</label>
-  <div className="col-sm-4">
-    <div className="input-group input-group-sm">
-      <input type="number" id="price" className="form-control" value={price} onChange={(e) => setPrice(e.target.value)} />
-      <span className="input-group-text bg-light">per kg</span>
-    </div>
-  </div>
-</div>
-        <div className="mb-3 row align-items-center">
-          <label htmlFor="district" className="col-sm-3 col-form-label">District:</label>
-          <div className="col-sm-4">
-            <select id="district" className="form-select" value={selectedDistrict} onChange={(e) => setSelectedDistrict(e.target.value)}>
-              <option value="">Select District</option>
-              {districts.map((district, index) => (
-                <option key={index} value={district}>{district}</option>
-              ))}
-            </select>
-          </div>
+        <input
+          type="text"
+          name="category"
+          placeholder="Product Category"
+          value={formData.category}
+          onChange={handleChange}
+        />
+        <div className="input-field-container">
+          <p>Product Item</p>
         </div>
-       
-        <div className="mb-3 row align-items-center">
-        <label htmlFor="phone" className="col-sm-3 col-form-label">Phone No:</label>
-        <div className="col-sm-4">
-          <div className="input-group input-group-sm">
-            <span className="input-group-text"><FontAwesomeIcon icon={faPhoneAlt} /></span>
-            <input type="tel" id="landline" className="form-control" value={landline} onChange={(e) => setLandline(e.target.value)} placeholder="Landline" />
-          </div>
+        <input
+          type="text"
+          name="item"
+          placeholder="Product Item"
+          value={formData.item}
+          onChange={handleChange}
+        />
+        <div className="input-field-container">
+          <p>Quantity (kg)</p>
         </div>
-        <div className="col-sm-4">
-          <div className="input-group input-group-sm">
-            <span className="input-group-text"><FontAwesomeIcon icon={faMobileAlt} /></span>
-            <input type="tel" id="mobile" className="form-control" value={mobile} onChange={(e) => setMobile(e.target.value)} placeholder="Mobile" />
-          </div>
+        <input
+          type="number"
+          name="quantity"
+          placeholder="Quantity"
+          value={formData.quantity}
+          onChange={handleChange}
+        />
+        <div className="input-field-container">
+          <p>Price (Rs.)</p>
         </div>
-      </div>
-        <div className="mb-3 row align-items-center">
-          <label htmlFor="email" className="col-sm-3 col-form-label">Email:</label>
-          <div className="col-sm-6">
-            <input type="email" id="email" className="form-control form-control-sm" value={email} onChange={(e) => setEmail(e.target.value)} />
-          </div>
+        <input
+          type="number"
+          name="price"
+          placeholder="Price"
+          value={formData.price}
+          onChange={handleChange}
+        />
+        <div className="input-field-container">
+          <p>District</p>
         </div>
-        <div className="mb-3 row align-items-center">
-          <label htmlFor="address" className="col-sm-3 col-form-label">Address:</label>
-          <div className="col-sm-9">
-            <input type="text" id="address" className="form-control form-control-sm" value={address} onChange={(e) => setAddress(e.target.value)} />
-          </div>
+        <input
+          type="text"
+          name="district"
+          placeholder="District"
+          value={formData.district}
+          onChange={handleChange}
+        />
+        <div className="input-field-container">
+          <p>Company</p>
         </div>
-
-        <div className="mb-3 row align-items-center">
-          <label htmlFor="expireDate" className="col-sm-3 col-form-label">Expire Date:</label>
-          <div className="col-sm-8">
-            <div className="input-group input-group-sm">
-              <DatePicker
-                selected={expireDate}
-                onChange={(date) => setExpireDate(date)}
-                dateFormat="yyyy-MM-dd"
-                showYearDropdown
-                showMonthDropdown
-                dropdownMode="select"
-                open={calendarOpen}
-                onClickOutside={() => setCalendarOpen(false)}
-                className="form-control"
-              />
-              <span className="input-group-text" onClick={() => setCalendarOpen(!calendarOpen)}>
-                <FontAwesomeIcon icon={faCalendarAlt} />
-              </span>
-            </div>
-          </div>
+        <input
+          type="text"
+          name="company"
+          placeholder="Company"
+          value={formData.company}
+          onChange={handleChange}
+        />
+        <div className="input-field-container">
+          <p>Contact Number</p>
         </div>
-
-        <div className="mb-3 row"></div>
-        <div className="mb-3 row">
-        <div className="col-sm-12 d-flex justify-content-end">
-            <button type="button" className="btn btn-secondary me-3" onClick={handleClear}>
-              <FontAwesomeIcon icon={faEraser} /> Clear
-            </button>
-            <button type="button" className="btn btn-success" onClick={handleSubmit}>
-              <FontAwesomeIcon icon={faPlusCircle} /> Add Product
-            </button>
-          </div>
+        <input
+          type="text"
+          name="mobile"
+          placeholder="Mobile"
+          value={formData.mobile}
+          onChange={handleChange}
+        />
+        <div className="input-field-container">
+          <p>Email Address</p>
         </div>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleChange}
+        />
+        <div className="input-field-container">
+          <p>Living Address</p>
+        </div>
+        <textarea
+          name="address"
+          placeholder="Address"
+          value={formData.address}
+          onChange={handleChange}
+        ></textarea>
+        <div className="input-field-container">
+          <p>Set Order Expire Date</p>
+        </div>
+        <input
+          type="date"
+          name="expireDate"
+          placeholder="Expire Date"
+          value={formData.expireDate}
+          onChange={handleChange}
+        />
+        <button type="submit">Submit</button>
       </form>
-      </div>
-      </div>
     </div>
   );
-};
+}
 
-export default FarmerProduct;
-
-
+export default AddProductPage;
