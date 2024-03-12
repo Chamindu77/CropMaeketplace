@@ -1,0 +1,54 @@
+.container {
+  max-width: 650px;
+  padding: 2px;
+}
+
+
+.text-center h2 {
+  margin-bottom: 10px;
+}
+
+
+.border {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.btn-secondary {
+  background-color: #003300;
+  color: white;
+  margin-right: 10px; 
+}
+
+.btn-success {
+  background-color: #003300;
+  color: white;
+}
+
+
+.btn-secondary {
+background-color: #808080;
+color: white;
+margin-right: 10px; 
+}
+
+.btn-success {
+background-color: #006400;
+color: white;
+}
+
+.btn-danger {
+background-color: #FF0000;
+color: white;
+}
+
+/*Style for the image 
+.postimage {
+  min-width: 450px;     
+  min-height: 250px;
+}*/
+
+
+
+
+
