@@ -4,6 +4,9 @@ import { faEraser, faMobileAlt, faPhoneAlt, faCalendarAlt, faPlusCircle } from '
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Forms/Seller/sellerProduct.css';
 import { useLocation } from "react-router-dom";
+import DatePicker from 'react-datepicker'; 
+import 'react-datepicker/dist/react-datepicker.css';
+
 
 
 const FarmerProduct = () => {
@@ -15,6 +18,7 @@ const FarmerProduct = () => {
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
   const [expireDate, setExpireDate] = useState(null);
+  const [calendarOpen, setCalendarOpen] = useState(false); 
   const [price, setPrice] = useState('');
 
   const districts = [
@@ -115,23 +119,23 @@ const FarmerProduct = () => {
       </div>
       <form>
       <div className="mb-3 row align-items-center">
-          <label htmlFor="quantity" className="col-sm-2 col-form-label">Quantity:</label>
+          <label htmlFor="quantity" className="col-sm-3 col-form-label">Quantity:</label>
           <div className="col-sm-4">
             <input type="number" id="quantity" className="form-control form-control-sm" min="0" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
           </div>
           <div className="col-sm-4 d-flex align-items-center">
             <div className="form-check form-check-inline">
-              <input className="form-check-input-sm" type="radio" name="quantityType" id="kg" value="kg" checked={quantityType === 'kg'} onChange={() => setQuantityType('kg')} />
+              <input className="form-check-input" type="radio" name="quantityType" id="kg" value="kg" checked={quantityType === 'kg'} onChange={() => setQuantityType('kg')} />
               <label className="form-check-label" htmlFor="kg">kg</label>
             </div>
             <div className="form-check form-check-inline">
-              <input className="form-check-input-sm" type="radio" name="quantityType" id="count" value="count" checked={quantityType === 'count'} onChange={() => setQuantityType('count')} />
+              <input className="form-check-input" type="radio" name="quantityType" id="count" value="count" checked={quantityType === 'count'} onChange={() => setQuantityType('count')} />
               <label className="form-check-label" htmlFor="count">count</label>
             </div>
           </div>
         </div>
         <div className="mb-3 row align-items-center">
-  <label htmlFor="price" className="col-sm-2 col-form-label">Price:</label>
+  <label htmlFor="price" className="col-sm-3 col-form-label">Price:</label>
   <div className="col-sm-4">
     <div className="input-group input-group-sm">
       <input type="number" id="price" className="form-control" value={price} onChange={(e) => setPrice(e.target.value)} />
@@ -140,7 +144,7 @@ const FarmerProduct = () => {
   </div>
 </div>
         <div className="mb-3 row align-items-center">
-          <label htmlFor="district" className="col-sm-2 col-form-label">District:</label>
+          <label htmlFor="district" className="col-sm-3 col-form-label">District:</label>
           <div className="col-sm-4">
             <select id="district" className="form-select" value={selectedDistrict} onChange={(e) => setSelectedDistrict(e.target.value)}>
               <option value="">Select District</option>
@@ -152,7 +156,7 @@ const FarmerProduct = () => {
         </div>
        
         <div className="mb-3 row align-items-center">
-        <label htmlFor="phone" className="col-sm-2 col-form-label">Phone No:</label>
+        <label htmlFor="phone" className="col-sm-3 col-form-label">Phone No:</label>
         <div className="col-sm-4">
           <div className="input-group input-group-sm">
             <span className="input-group-text"><FontAwesomeIcon icon={faPhoneAlt} /></span>
@@ -167,37 +171,43 @@ const FarmerProduct = () => {
         </div>
       </div>
         <div className="mb-3 row align-items-center">
-          <label htmlFor="email" className="col-sm-2 col-form-label">Email:</label>
-          <div className="col-sm-4">
+          <label htmlFor="email" className="col-sm-3 col-form-label">Email:</label>
+          <div className="col-sm-6">
             <input type="email" id="email" className="form-control form-control-sm" value={email} onChange={(e) => setEmail(e.target.value)} />
           </div>
         </div>
         <div className="mb-3 row align-items-center">
-          <label htmlFor="address" className="col-sm-2 col-form-label">Address:</label>
-          <div className="col-sm-8">
+          <label htmlFor="address" className="col-sm-3 col-form-label">Address:</label>
+          <div className="col-sm-9">
             <input type="text" id="address" className="form-control form-control-sm" value={address} onChange={(e) => setAddress(e.target.value)} />
           </div>
         </div>
+
         <div className="mb-3 row align-items-center">
-          <label htmlFor="expireDate" className="col-sm-2 col-form-label">Expire Date:</label>
-          <div className="col-sm-4">
+          <label htmlFor="expireDate" className="col-sm-3 col-form-label">Expire Date:</label>
+          <div className="col-sm-8">
             <div className="input-group input-group-sm">
-            <div className="mb-3 row align-items-center">
-             <div className="col-sm-4">
-                  <input type="number" className="form-control" placeholder="DD" min="1" max="31" />
-              </div>
-            <div className="col-sm-4">
-                <input type="number" className="form-control" placeholder="MM" min="1" max="12" />
-            </div>
-            <div className="col-sm-4">
-                <input type="number" className="form-control" placeholder="YYYY" min="2024"/>
-            </div>
-            </div>
+              <DatePicker
+                selected={expireDate}
+                onChange={(date) => setExpireDate(date)}
+                dateFormat="yyyy-MM-dd"
+                showYearDropdown
+                showMonthDropdown
+                dropdownMode="select"
+                open={calendarOpen}
+                onClickOutside={() => setCalendarOpen(false)}
+                className="form-control"
+              />
+              <span className="input-group-text" onClick={() => setCalendarOpen(!calendarOpen)}>
+                <FontAwesomeIcon icon={faCalendarAlt} />
+              </span>
             </div>
           </div>
         </div>
+
+        <div className="mb-3 row"></div>
         <div className="mb-3 row">
-        <div className="col-sm-4 d-flex justify-content-end">
+        <div className="col-sm-12 d-flex justify-content-end">
             <button type="button" className="btn btn-secondary me-3" onClick={handleClear}>
               <FontAwesomeIcon icon={faEraser} /> Clear
             </button>

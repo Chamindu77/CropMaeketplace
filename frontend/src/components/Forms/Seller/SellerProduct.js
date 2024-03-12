@@ -4,6 +4,8 @@ import { faEraser, faMobileAlt, faPhoneAlt, faCalendarAlt, faPlusCircle } from '
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './sellerProduct.css';
 import { useLocation } from "react-router-dom";
+import DatePicker from 'react-datepicker'; 
+import 'react-datepicker/dist/react-datepicker.css';
 
 
 const SellerProduct = () => {
@@ -16,6 +18,7 @@ const SellerProduct = () => {
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
   const [expireDate, setExpireDate] = useState(null);
+  const [calendarOpen, setCalendarOpen] = useState(false); 
   const [price, setPrice] = useState('');
 
 
@@ -105,7 +108,7 @@ const SellerProduct = () => {
     <div className="container mt-5">
     <div className="border p-4 rounded">
       <div className="text-center mb-4">
-        <h2>Create Your Order Post</h2>
+        <h2>Create Your Order Post </h2>
       </div>
       
       <div className="mb-3 row justify_content-center">

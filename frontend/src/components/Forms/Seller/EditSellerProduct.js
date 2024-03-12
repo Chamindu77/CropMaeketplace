@@ -4,7 +4,9 @@ import { faEraser, faMobileAlt, faPhoneAlt, faCalendarAlt, faPlusCircle, faTrash
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './sellerProduct.css';
 import { useLocation } from "react-router-dom";
-
+import DatePicker from 'react-datepicker'; 
+import 'react-datepicker/dist/react-datepicker.css';
+ 
 
 const EditSellerProduct = () => {
   const [selectedDistrict, setSelectedDistrict] = useState('');

@@ -1,11 +1,11 @@
 .container {
-  max-width: 1000px;
-  padding: 20px;
+  max-width: 650px;
+  padding: 2px;
 }
 
 
 .text-center h2 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 
@@ -42,8 +42,13 @@ background-color: #FF0000;
 color: white;
 }
 
-/* Style for the image 
+/*Style for the image 
 .postimage {
-  min-width: 450px; 
+  min-width: 450px;     
   min-height: 250px;
 }*/
+
+
+
+
+
