@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./OrderPage.css";
+import { useLocation } from "react-router-dom";
 
 function AddProductPage() {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
   const [formData, setFormData] = useState({
-    name: "",
-    item: "",
-    productImage: "",
-    category: "",
+    productImage: queryParams.get("image") || "",
+    category: queryParams.get("item") || "",
+    item: queryParams.get("category") || "",
     quantity: "",
     price: "",
     district: "",
@@ -19,22 +21,41 @@ function AddProductPage() {
   });
 
   const [items, setItems] = useState([]);
-  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    // Fetch items based on selected category
+    fetchItems(formData.category);
+  }, [formData.category]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
+    setFormData((prevFormData) => ({
+      ...prevFormData,
       [name]: value,
     }));
 
-    if (name === "category") {
-      fetchItems(value);
+    // Find the selected item from items
+    const selectedItem = items.find((item) => item.id === value);
+    if (selectedItem) {
+      // Update form data with selected item details
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        item: selectedItem.name,
+        category: selectedItem.category,
+        productImage: selectedItem.image, // Assuming you have an image field in your item object
+      }));
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+    // You can handle form submission logic here, like sending data to the backend
+  };
+
   const fetchItems = (category) => {
-    fetch(`http://localhost:8070/product`)
+    // Fetch items based on category and update the items state
+    fetch(`http://localhost:8070/product?category=${category}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -42,53 +63,44 @@ function AddProductPage() {
         return response.json(); // Parse the response body as JSON
       })
       .then((data) => {
-        console.log(data); // Log the data here
         setItems(data); // Update the items state with the parsed data
       })
       .catch((error) => console.error("Error fetching items:", error));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log("Form submitted:", formData);
   };
 
   return (
     <div className="form-container">
       <h3>Place new Order</h3>
       <form onSubmit={handleSubmit}>
+        {formData.productImage && (
+          <div className="image-preview">
+            <img src={formData.productImage} alt="Product" />
+          </div>
+        )}
+
+        <div className="input-field-container">
+          <p>Product Category</p>
+        </div>
         <input
           type="text"
-          name="productImage"
-          placeholder="Product Image URL"
-          value={formData.productImage}
-          onChange={handleChange}
-        />
-
-        <select
           name="category"
+          placeholder="Product Category"
           value={formData.category}
           onChange={handleChange}
-        >
-          <option value="">Select Option</option>
-          <option value="Veg">Vegetable</option>
-          <option value="Fruit">Fruit</option>
-          <option value="grain">Grain</option>
-          <option value="spice">Spices</option>
-          <option value="other">Other</option>
-        </select>
-
-        <select name="item" value={formData.item} onChange={handleChange}>
-          <option value="">Select Item</option>
-          {items &&
-            items.map((item) => (
-              <option key={item.id} value={item.id}>
-                {item.name}
-              </option>
-            ))}
-        </select>
-
+        />
+        <div className="input-field-container">
+          <p>Product Item</p>
+        </div>
+        <input
+          type="text"
+          name="item"
+          placeholder="Product Item"
+          value={formData.item}
+          onChange={handleChange}
+        />
+        <div className="input-field-container">
+          <p>Quantity (kg)</p>
+        </div>
         <input
           type="number"
           name="quantity"
@@ -96,6 +108,9 @@ function AddProductPage() {
           value={formData.quantity}
           onChange={handleChange}
         />
+        <div className="input-field-container">
+          <p>Price (Rs.)</p>
+        </div>
         <input
           type="number"
           name="price"
@@ -103,6 +118,9 @@ function AddProductPage() {
           value={formData.price}
           onChange={handleChange}
         />
+        <div className="input-field-container">
+          <p>District</p>
+        </div>
         <input
           type="text"
           name="district"
@@ -110,6 +128,9 @@ function AddProductPage() {
           value={formData.district}
           onChange={handleChange}
         />
+        <div className="input-field-container">
+          <p>Company</p>
+        </div>
         <input
           type="text"
           name="company"
@@ -117,6 +138,9 @@ function AddProductPage() {
           value={formData.company}
           onChange={handleChange}
         />
+        <div className="input-field-container">
+          <p>Contact Number</p>
+        </div>
         <input
           type="text"
           name="mobile"
@@ -124,13 +148,9 @@ function AddProductPage() {
           value={formData.mobile}
           onChange={handleChange}
         />
-        <input
-          type="text"
-          name="land"
-          placeholder="Land"
-          value={formData.land}
-          onChange={handleChange}
-        />
+        <div className="input-field-container">
+          <p>Email Address</p>
+        </div>
         <input
           type="email"
           name="email"
@@ -138,12 +158,18 @@ function AddProductPage() {
           value={formData.email}
           onChange={handleChange}
         />
+        <div className="input-field-container">
+          <p>Living Address</p>
+        </div>
         <textarea
           name="address"
           placeholder="Address"
           value={formData.address}
           onChange={handleChange}
         ></textarea>
+        <div className="input-field-container">
+          <p>Set Order Expire Date</p>
+        </div>
         <input
           type="date"
           name="expireDate"

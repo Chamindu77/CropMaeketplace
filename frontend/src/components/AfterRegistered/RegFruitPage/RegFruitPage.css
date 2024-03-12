@@ -1,15 +1,14 @@
-.nothing-cateogory-pages-veg {
-  height: 95px;
-}
-
-.nothing-cateogory-pages-below-veg {
+.nothing-cateogory-pages-below {
   height: 50px;
+}
+.nothing-cateogory-pages {
+  height: 95px;
 }
 
 /* VegetablePage.css */
 
 /* Style for the main container */
-.products-container-veg {
+.products-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* Display 5 items in one row */
   gap: 20px; /* Spacing between products */
@@ -17,7 +16,7 @@
 }
 
 /* Style for individual product items */
-.products-item-veg {
+.products-item {
   background-color: #c9dbc9;
   border: 1px solid #e0e0e0;
   padding: 20px;
@@ -33,12 +32,12 @@
   margin-left: 20px;
 }
 
-.product-item-veg:hover {
+.product-item:hover {
   transform: translateY(-5px); /* Lifts the product item slightly on hover */
 }
 
 /* Style for product images */
-.products-item-veg img {
+.products-item img {
   max-width: 100%;
   height: auto;
   border-radius: 10px;
@@ -47,13 +46,13 @@
 }
 
 /* Style for product names */
-.products-item-veg p {
+.products-item p {
   margin-top: 15px;
   font-size: 20px;
   color: #333;
 }
 
-.products-details-veg img {
+.products-details img {
   max-width: 200px; /* Ensures the image doesn't exceed the width of its container */
   height: 200px; /* Maintains the image's aspect ratio */
   max-height: 100px;
@@ -61,38 +60,26 @@
 }
 
 /* You can add more styles or modify the existing ones as per your design requirements */
-.product-btn-veg {
+.product-btn {
   background-color: none;
 }
 
-.search-container-veg {
-  margin: 20px 10px 20px 50px;
+/* VegetablePage.css */
+
+/* ... (existing styles) ... */
+
+/* Style for the search container */
+.search-container {
+  margin-top: 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 10px 0;
-  width: 1000px;
-  /* Change background color as needed */
+  /* Background color for the search container */
 }
 
-/* Style for the "Add Products" button */
-.add-products-button {
-  background-color: #79ac78; /* Change background color as needed */
-  border: none;
-  border-radius: 5px;
-  color: white;
-  padding: 10px 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-  width: 200px;
-  margin-left: 30px;
-}
-
-.add-products-button:hover {
-  background-color: #79ac78; /* Darker shade on hover */
-}
 /* Style for the search input */
-.search-input-veg {
+.search-input {
   padding: 10px 15px;
   border: 1px solid #ccc;
   border-radius: 5px 0 0 5px; /* Rounded corners on the left side */
@@ -101,13 +88,13 @@
   transition: border-color 0.3s ease-in-out;
 }
 
-.search-input-veg:focus {
-  border-color: #79ac78; /* Highlight border on focus */
+.search-input:focus {
+  border-color: #007bff; /* Highlight border on focus */
 }
 
 /* Style for the search button */
-.search-button-veg {
-  background-color: #79ac78;
+.search-button {
+  background-color: #007bff;
   border: none;
   border-radius: 0 5px 5px 0; /* Rounded corners on the right side */
   color: white;
@@ -117,20 +104,8 @@
   transition: background-color 0.3s ease-in-out;
 }
 
-.search-button-veg:hover {
-  background-color: #79ac78; /* Darker shade on hover */
-}
-
-.make-order-button-veg {
-  background-color: #79ac78;
-  justify-content: right;
-  margin-left: 30px;
-  align-items: center;
-  width: 170px;
-}
-
-.product-item-veg-link {
-  text-decoration: none;
+.search-button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
 }
 
 /* ... (other styles) ... */

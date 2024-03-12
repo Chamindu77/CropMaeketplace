@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./VegetablePage.css";
+import "./RegVegetablePage.css";
 import Navbar from "../../NavbarRegistered/NavbarRegistered";
 import FooterNew from "../../Footer/FooterNew";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -65,7 +65,14 @@ function VegetablePage() {
         {products.length > 0 ? (
           products.map((product) => (
             <div className="products-item-veg" key={product._id}>
-              <a href="/login" className="product-item-veg-link">
+              <a
+                href={`/order?image=${encodeURIComponent(
+                  product.productImage
+                )}&item=${encodeURIComponent(
+                  product.productName
+                )}&category=Veg`}
+                className="product-item-veg-link"
+              >
                 <img src={product.productImage} alt={product.productName} />
                 <p>{product.productName}</p>
               </a>

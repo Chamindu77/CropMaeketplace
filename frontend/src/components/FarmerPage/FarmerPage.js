@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 //import { Link } from "react-router-dom";
 import "./FarmerPage.css";
-import NavbarRegistered from "../NavbarRegistered/NavbarRegistered";
+import Navbar from "../Navbar/Navbar";
 import FooterNew from "../Footer/FooterNew";
 import Categories from "../Catoegories/Categories";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -56,7 +56,7 @@ function FarmerPage() {
 
   return (
     <div>
-      <NavbarRegistered />
+      <Navbar />
       <div className="nothing"></div>
       <div className="crop-container">
         <img
@@ -106,12 +106,16 @@ function FarmerPage() {
               <p>Price: Rs.{order.price}</p>
               <p>Posted Date: {order.postedDate}</p>
               <p>Expires Date: {order.expireDate}</p>
-              <button className="cart-button">
-                <FontAwesomeIcon icon={faShoppingCart} /> Add to Cart
-              </button>
-              <button className="supply-button">
-                <FontAwesomeIcon icon={faTruck} /> Supply
-              </button>
+              <a href="/login" className="login-path-set">
+                <button className="cart-button">
+                  <FontAwesomeIcon icon={faShoppingCart} /> Add to Cart
+                </button>
+              </a>
+              <a href="/login" className="login-path-set">
+                <button className="supply-button">
+                  <FontAwesomeIcon icon={faTruck} /> Supply
+                </button>
+              </a>
             </div>
           ))}
         </div>
@@ -141,12 +145,16 @@ function FarmerPage() {
               <p>Price: Rs.{order.price}</p>
               <p>Posted Date: {order.postedDate}</p>
               <p>Expires Date: {order.expireDate}</p>
-              <button className="cart-button">
-                <FontAwesomeIcon icon={faShoppingCart} /> Add to Cart
-              </button>
-              <button className="supply-button">
-                <FontAwesomeIcon icon={faShoppingBag} /> Buy Now
-              </button>
+              <a href="/login" className="login-path-set">
+                <button className="cart-button">
+                  <FontAwesomeIcon icon={faShoppingCart} /> Add to Cart
+                </button>
+              </a>
+              <a href="/login" className="login-path-set">
+                <button className="supply-button">
+                  <FontAwesomeIcon icon={faShoppingBag} /> Buy Now
+                </button>
+              </a>
             </div>
           ))}
         </div>
@@ -174,12 +182,16 @@ function FarmerPage() {
               <p>Capacity: {order.capacity} kg</p>
               <p>Price: Rs.{order.price}/km</p>
               <p>Posted Date: {order.postedDate}</p>
-              <button className="cart-button">
-                <FontAwesomeIcon icon={faShoppingCart} /> Add to Cart
-              </button>
-              <button className="supply-button">
-                <FontAwesomeIcon icon={faInfoCircle} /> More Details
-              </button>
+              <a href="/login" className="login-path-set">
+                <button className="cart-button">
+                  <FontAwesomeIcon icon={faShoppingCart} /> Add to Cart
+                </button>
+              </a>
+              <a href="/login" className="login-path-set">
+                <button className="supply-button">
+                  <FontAwesomeIcon icon={faInfoCircle} /> More Details
+                </button>
+              </a>
             </div>
           ))}
         </div>

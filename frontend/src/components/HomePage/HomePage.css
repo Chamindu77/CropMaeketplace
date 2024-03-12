@@ -114,13 +114,13 @@
   margin-top: 7px;
 }
 
-.img {
-  width: 90px;
+.img-user {
+  width: 145px;
   max-width: 50%;
-  height: 80px;
+  height: 110px;
   max-height: 50%;
   margin: 10px 40px 0 20px;
-  border-radius: 45px;
+  border-radius: 50px;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -281,7 +281,7 @@
     transform: translate(0, -50%);
   }
 
-  .img {
+  .img-user {
     width: 80px;
     height: 70px;
     margin: 8px 60px 0 0px;

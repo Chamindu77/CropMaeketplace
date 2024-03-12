@@ -10,15 +10,15 @@ function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-  
+
     // Check if email or userRole is empty
     if (!email || !password || !userRole) {
       alert("Please fill in all fields.");
       return;
     }
-  
+
     let url = "";
-  
+
     switch (userRole) {
       case "Farmer":
         url = "http://localhost:8070/farmer/login";
@@ -28,12 +28,12 @@ function Login() {
         break;
       case "Deliveryman":
         url = "http://localhost:8070/deliveryman/login";
-        console.log(email,password,userRole)
+        console.log(email, password, userRole);
         break;
       default:
         break;
     }
-  
+
     fetch(url, {
       method: "POST",
       crossDomain: true,

@@ -46,12 +46,17 @@ function FarmerOrderPage() {
                 <p>Price: Rs.{order.price}</p>
                 <p>Posted Date: {order.postedDate}</p>
                 <p>Expires Date: {order.expireDate}</p>
-                <button className="cart-button">
-                  <FontAwesomeIcon icon={faShoppingCart} /> Add to Cart
-                </button>
-                <button className="supply-button">
-                  <FontAwesomeIcon icon={faTruck} /> Supply
-                </button>
+                <a href="/login" className="login-path-set">
+                  <button className="cart-button">
+                    <FontAwesomeIcon icon={faShoppingCart} /> Add to Cart
+                  </button>
+                </a>
+
+                <a href="/login" className="login-path-set">
+                  <button className="supply-button">
+                    <FontAwesomeIcon icon={faTruck} /> Supply
+                  </button>
+                </a>
               </div>
             ))
           )}

@@ -48,12 +48,16 @@ function DeliveryPostPage() {
                 <p>Capacity: {order.capacity} kg</p>
                 <p>Price: Rs.{order.price}/km</p>
                 <p>Posted Date: {order.postedDate}</p>
-                <button className="cart-button">
-                  <FontAwesomeIcon icon={faShoppingCart} /> Add to Cart
-                </button>
-                <button className="supply-button">
-                  <FontAwesomeIcon icon={faInfoCircle} /> More Details
-                </button>
+                <a href="/login" className="login-path-set">
+                  <button className="cart-button">
+                    <FontAwesomeIcon icon={faShoppingCart} /> Add to Cart
+                  </button>
+                </a>
+                <a href="/login" className="login-path-set">
+                  <button className="supply-button">
+                    <FontAwesomeIcon icon={faInfoCircle} /> More Details
+                  </button>
+                </a>
               </div>
             ))
           )}
