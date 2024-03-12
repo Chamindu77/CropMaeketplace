@@ -17,15 +17,13 @@ const sellerSchema = new Schema({
   email: {
     type: String,
   },
-  district: {
-    type: String,
-  },
+
   password: {
     type: String,
   },
-  primaryKey: {
+
+  district: {
     type: String,
-    unique: true,
   },
 });
 

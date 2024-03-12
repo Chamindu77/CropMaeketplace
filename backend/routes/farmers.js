@@ -14,10 +14,16 @@ router.post(
     body("userRole").notEmpty().withMessage("User role is required"),
     body("fname").notEmpty().withMessage("First name is required"),
     body("lname").notEmpty().withMessage("Last name is required"),
-    body("email").notEmpty().withMessage("Email is required").isEmail().withMessage("Invalid email"),
+    body("email")
+      .notEmpty()
+      .withMessage("Email is required")
+      .isEmail()
+      .withMessage("Invalid email"),
     body("password")
-      .notEmpty().withMessage("Password is required")
-      .isLength({ min: 6 }).withMessage("Password must be at least 6 characters long"),
+      .notEmpty()
+      .withMessage("Password is required")
+      .isLength({ min: 6 })
+      .withMessage("Password must be at least 6 characters long"),
     body("district").notEmpty().withMessage("District is required"),
   ],
   async (req, res) => {
@@ -78,7 +84,9 @@ router.post("/login", async (req, res) => {
     const oldFarmer = await Farmer.findOne({ primaryKey });
 
     if (!oldFarmer) {
-      return res.status(400).json({ error: "This user has not been registered!" });
+      return res
+        .status(400)
+        .json({ error: "This user has not been registered!" });
     }
 
     const isPasswordMatch = await bcrypt.compare(password, oldFarmer.password);
@@ -86,11 +94,15 @@ router.post("/login", async (req, res) => {
       const token = jwt.sign({ email: oldFarmer.email }, JWT_SECRET);
       return res.status(200).json({ status: "ok", data: token });
     } else {
-      return res.status(401).json({ status: "error", error: "Invalid Password" });
+      return res
+        .status(401)
+        .json({ status: "error", error: "Invalid Password" });
     }
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ status: "error", error: "An error occurred during login" });
+    return res
+      .status(500)
+      .json({ status: "error", error: "An error occurred during login" });
   }
 });
 
