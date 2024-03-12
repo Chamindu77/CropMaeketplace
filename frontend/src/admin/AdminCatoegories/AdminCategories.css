@@ -1,0 +1,59 @@
+.veg-category-image {
+  width: 200px;
+  height: 200px;
+  margin: 13px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.fruit-category-image {
+  width: 200px;
+  height: 200px;
+  margin: 13px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.spice-category-image {
+  width: 200px;
+  height: 200px;
+  margin: 13px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.grain-category-image {
+  width: 200px;
+  height: 200px;
+  margin: 13px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.other-category-image {
+  width: 200px;
+  height: 200px;
+  margin: 13px;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.category-image-row {
+  text-align: center;
+}
+
+.veg-category-image:hover {
+  transform: scale(1.1);
+}
+
+.fruit-category-image:hover {
+  transform: scale(1.1);
+}
+
+.spice-category-image:hover {
+  transform: scale(1.1);
+}
+
+.grain-category-image:hover {
+  transform: scale(1.1);
+}
+
+.other-category-image:hover {
+  transform: scale(1.1);
+}
