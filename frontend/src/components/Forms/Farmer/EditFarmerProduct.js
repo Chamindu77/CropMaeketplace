@@ -214,7 +214,7 @@ const EditFarmerProduct = () => {
         </div>
 
         <div className="mb-3 row">
-          <div className="col-sm-12 d-flex justify-content-end">
+          <div className="col-sm-8 d-flex justify-content-end">
             <button type="button" className="btn btn-secondary me-3" onClick={handleClear} style={{ backgroundColor: '#808080' }}>
               <FontAwesomeIcon icon={faEraser} /> Clear
             </button>
