@@ -21,9 +21,7 @@
     "react-icons": "^4.12.0",
     "react-router-dom": "^6.21.1",
     "react-scripts": "5.0.1",
-    "react-scroll-to-bottom": "^4.2.0",
     "react-simple-typewriter": "^5.0.1",
-    "socket.io-client": "^4.7.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -49,9 +47,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
-  "author": "",
-  "license": "ISC"
+  }
 }

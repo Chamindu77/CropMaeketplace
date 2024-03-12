@@ -26,7 +26,6 @@ import RegFruitPage from "./components/AfterRegistered/RegFruitPage/RegFruitPage
 import RegOtherPage from "./components/AfterRegistered/RegOtherPage/RegOtherPage";
 import RegSpicesPage from "./components/AfterRegistered/RegSpicesPage/RegSpicesPage";
 import RegGrainsPage from "./components/AfterRegistered/RegGrainsPage/RegGrainsPage";
-import ChatWithAdmin from "./components/ChatWithAdmin/ChatWithAdmin";
 
 function App() {
   return (
@@ -56,7 +55,6 @@ function App() {
         <Route path="/reggrain" element={<RegGrainsPage />} />
         <Route path="/regspices" element={<RegSpicesPage />} />
         <Route path="/regother" element={<RegOtherPage />} />
-        <Route path="/contactadmin" element={<ChatWithAdmin />} />
       </Routes>
     </Router>
   );
