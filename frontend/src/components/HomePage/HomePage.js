@@ -43,7 +43,7 @@ function HomePage() {
           <img
             src={process.env.PUBLIC_URL + "/Profile/farmer.png"}
             alt=""
-            className="img"
+            className="img-user"
           />
         </a>
         <p className="profile-name">Farmer</p>
@@ -51,7 +51,7 @@ function HomePage() {
           <img
             src={process.env.PUBLIC_URL + "/Profile/seller.png"}
             alt=""
-            className="img"
+            className="img-user"
           />
         </a>
         <p className="profile-name">Seller</p>
@@ -59,18 +59,10 @@ function HomePage() {
           <img
             src={process.env.PUBLIC_URL + "/Profile/delivery.png"}
             alt=""
-            className="img"
+            className="img-user"
           />
         </a>
         <p className="profile-name">Deliveryman</p>
-        <a className="profile" href="/both">
-          <img
-            src={process.env.PUBLIC_URL + "/Profile/both.png"}
-            alt=""
-            className="img"
-          />
-        </a>
-        <p className="profile-name">Farmer/Seller</p>
       </div>
 
       <div className="button-container">

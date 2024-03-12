@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 //import { Link } from "react-router-dom";
 import "./DeliverymanPage.css";
-import NavbarRegistered from "../NavbarRegistered/NavbarRegistered";
+import Navbar from "../Navbar/Navbar";
 import FooterNew from "../Footer/FooterNew";
 //import Categories from "../Catoegories/Categories";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -53,7 +53,7 @@ function DeliverymanPage() {
 
   return (
     <div>
-      <NavbarRegistered />
+      <Navbar />
       <div className="nothing"></div>
       <div className="crop-container">
         <img

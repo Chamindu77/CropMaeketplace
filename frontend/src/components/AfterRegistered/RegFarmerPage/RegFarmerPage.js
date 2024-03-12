@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 //import { Link } from "react-router-dom";
-import "./SellerPage.css";
-import Navbar from "../Navbar/Navbar";
-import FooterNew from "../Footer/FooterNew";
-import Categories from "../Catoegories/Categories";
+import "./RegFarmerPage.css";
+import NavbarRegistered from "../../NavbarRegistered/NavbarRegistered";
+import FooterNew from "../../Footer/FooterNew";
+import RegCategories from "../../AfterRegistered/RegCatoegories/RegCategories";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
@@ -12,7 +12,7 @@ import {
   faShoppingBag,
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import TypeWriter from "../AutoWritingText/TypeWriter";
+import TypeWriter from "../../AutoWritingText/TypeWriter";
 
 function FarmerPage() {
   const [sellerOrders, setSellerOrders] = useState([]);
@@ -53,13 +53,14 @@ function FarmerPage() {
     fetchFarmerOrders();
     fetchDeliveryPosts();
   }, []);
+
   return (
     <div>
-      <Navbar />
+      <NavbarRegistered />
       <div className="nothing"></div>
       <div className="crop-container">
         <img
-          src="https://static.vecteezy.com/system/resources/previews/027/186/276/large_2x/latin-man-in-an-apron-in-a-greengrocer-s-shop-looking-at-the-camera-free-photo.jpg"
+          src="https://www.abers-tourisme.com/assets/uploads/sites/8/2022/12/vente-legumes.jpg"
           alt=""
           className="crop-image"
         />
@@ -67,7 +68,7 @@ function FarmerPage() {
 
       <div className="type-writer-container">
         <TypeWriter
-          text="Welcome Sellers!"
+          text="Welcome Farmers!"
           loop={false}
           className="writer"
           textStyle={{
@@ -76,7 +77,6 @@ function FarmerPage() {
           }}
         />
       </div>
-
       {/* 
       <div className="topic">
         <p>Product Categories</p>
@@ -84,7 +84,7 @@ function FarmerPage() {
       */}
       <div className="categories-container">
         <div className="categories-div">
-          <Categories />
+          <RegCategories />
         </div>
       </div>
       <div className="nothing2"></div>
@@ -95,7 +95,7 @@ function FarmerPage() {
       <div className="orders-wrapper">
         <div className="orders-container">
           {sellerOrders.slice(0, 4).map((order, index) => (
-            <div key={index} className="order-item">
+            <div key={index} className="order-item1">
               <img
                 src={order.productImage}
                 alt={order.item}
@@ -151,7 +151,7 @@ function FarmerPage() {
           ))}
         </div>
         {farmerOrders.length > 4 && (
-          <a href="/farmerorder" className="view-all-button">
+          <a href="/farmerorder" className="view-all-button1">
             <FontAwesomeIcon icon={faChevronRight} className="arrow-icon" />
           </a>
         )}
@@ -184,7 +184,7 @@ function FarmerPage() {
           ))}
         </div>
         {deliveryPosts.length > 4 && (
-          <a href="/deliverypost" className="view-all-button">
+          <a href="/deliverypost" className="view-all-button1">
             <FontAwesomeIcon icon={faChevronRight} className="arrow-icon" />
           </a>
         )}

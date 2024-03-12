@@ -31,13 +31,15 @@
   margin-left: 20px;
   /* Ensure the image doesn't overflow */
 }
+
 .login-inner-container h3 {
   margin-bottom: 40px;
   color: #333;
   text-align: center;
 }
 
-.email label {
+.email label,
+.password label {
   margin-left: 10px;
   margin-bottom: 5px;
 }
@@ -73,7 +75,6 @@
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
-  margin-left: 100px;
 }
 
 .login-button:hover {

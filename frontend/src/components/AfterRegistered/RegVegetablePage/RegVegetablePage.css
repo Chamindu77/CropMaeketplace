@@ -1,0 +1,136 @@
+.nothing-cateogory-pages-veg {
+  height: 95px;
+}
+
+.nothing-cateogory-pages-below-veg {
+  height: 50px;
+}
+
+/* VegetablePage.css */
+
+/* Style for the main container */
+.products-container-veg {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Display 5 items in one row */
+  gap: 20px; /* Spacing between products */
+  padding: 10px;
+}
+
+/* Style for individual product items */
+.products-item-veg {
+  background-color: #c9dbc9;
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  gap: 10px;
+  width: 250px;
+  height: 250px;
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.product-item-veg:hover {
+  transform: translateY(-5px); /* Lifts the product item slightly on hover */
+}
+
+/* Style for product images */
+.products-item-veg img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  width: 200px;
+  height: 180px;
+}
+
+/* Style for product names */
+.products-item-veg p {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #333;
+}
+
+.products-details-veg img {
+  max-width: 200px; /* Ensures the image doesn't exceed the width of its container */
+  height: 200px; /* Maintains the image's aspect ratio */
+  max-height: 100px;
+  border-radius: 10px; /* Set a maximum height for the product images */
+}
+
+/* You can add more styles or modify the existing ones as per your design requirements */
+.product-btn-veg {
+  background-color: none;
+}
+
+.search-container-veg {
+  margin: 20px 10px 20px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  width: 1000px;
+  /* Change background color as needed */
+}
+
+/* Style for the "Add Products" button */
+.add-products-button {
+  background-color: #79ac78; /* Change background color as needed */
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  width: 200px;
+  margin-left: 30px;
+}
+
+.add-products-button:hover {
+  background-color: #79ac78; /* Darker shade on hover */
+}
+/* Style for the search input */
+.search-input-veg {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px; /* Rounded corners on the left side */
+  width: 300px; /* Adjust width as needed */
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.search-input-veg:focus {
+  border-color: #79ac78; /* Highlight border on focus */
+}
+
+/* Style for the search button */
+.search-button-veg {
+  background-color: #79ac78;
+  border: none;
+  border-radius: 0 5px 5px 0; /* Rounded corners on the right side */
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  width: auto;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.search-button-veg:hover {
+  background-color: #79ac78; /* Darker shade on hover */
+}
+
+.make-order-button-veg {
+  background-color: #79ac78;
+  justify-content: right;
+  margin-left: 30px;
+  align-items: center;
+  width: 170px;
+}
+
+.product-item-veg-link {
+  text-decoration: none;
+}
+
+/* ... (other styles) ... */

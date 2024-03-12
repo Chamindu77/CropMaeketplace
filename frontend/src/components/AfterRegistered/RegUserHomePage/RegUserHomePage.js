@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../../NavbarRegistered/NavbarRegistered";
 //import RegisterPopup from "../Register/RegisterPage";
 import "./RegUserHomePage.css";
-import Categories from "../Catoegories/Categories";
+import Categories from "../../Catoegories/Categories";
 //import CarouselCategory from "../Carousel/CarouselCategory";
 //import TypeWriter from "../AutoWritingText/TypeWriter";
-import Video from "../ProcessLine/Video";
+import Video from "../../ProcessLine/Video";
 //import Footer from "../Footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import KeyFeatures from "../KeyFeatures/KeyFeatures";
-import FooterNew from "../Footer/FooterNew";
+import KeyFeatures from "../../KeyFeatures/KeyFeatures";
+import FooterNew from "../../Footer/FooterNew";
 //import RegisterPage from "../Register/RegisterPage";
 
 function RegUserHomePage() {
@@ -72,7 +72,7 @@ function RegUserHomePage() {
       </div>
 
       <div className="profile-container">
-        <a className="profile" href="/farmer">
+        <a className="profile" href="/regfarmer">
           <img
             src="https://thumbs.dreamstime.com/b/cheerful-farmer-organic-vegetables-garden-76739182.jpg"
             alt="Farmer"
@@ -80,7 +80,7 @@ function RegUserHomePage() {
           />
           <p className="section-name">Framer Section</p>
         </a>
-        <a className="profile" href="/seller">
+        <a className="profile" href="/regseller">
           <img
             src="https://t3.ftcdn.net/jpg/01/38/55/22/360_F_138552236_dsdw41w8tuC2vmEChEay78rcYj6K6VWa.jpg"
             alt="Seller"
@@ -88,7 +88,7 @@ function RegUserHomePage() {
           />
           <p className="section-name">Framer Section</p>
         </a>
-        <a className="profile" href="/deliveryman">
+        <a className="profile" href="/regdeliveryman">
           <img
             src="https://media.istockphoto.com/id/1311192458/photo/portrait-of-an-hispanic-man-doing-a-home-delivery.jpg?s=612x612&w=0&k=20&c=huHAUlFfmZeUku-h9SnMuz3-rS54Ml1rrNFKjeq60mo="
             alt="Deliveryman"
