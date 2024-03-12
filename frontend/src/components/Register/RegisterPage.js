@@ -1,22 +1,27 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import React, { useState } from "react";
+//import { Link } from "react-router-dom";
 import "./RegisterPage.css";
 import Navbar from "../Navbar/Navbar";
+import FooterNew from "../Footer/FooterNew";
 
 export default function SignUp() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
+  const [email, setEmail] = useState("");
+  const [district, setDistrict] = useState("");
+  const [password, setPassword] = useState("");
+  const [userRole, setUserRole] = useState("");
 
-  const onSubmit = async (data) => {
-    console.log(data);
+  //const[primaryKey, setPrimaryKey] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(userRole, fname, lname, email, password, district);
 
     let url = "";
 
-    switch (data.userRole) {
+    switch (userRole) {
       case "Farmer":
         url = "http://localhost:8070/farmer/register";
         break;
@@ -30,127 +35,145 @@ export default function SignUp() {
         break;
     }
 
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        userRole,
+        fname,
+        lname,
+        email,
+        district,
+        password,
+      }),
+    })
+      .then((res) => {
+        if (res.status === 201) {
+          return res.json(); // Parse the JSON response body
+        } else {
+          throw new Error("Something went wrong in response"); // Throw an error for non-201 responses
+        }
+      })
+      .then((data) => {
+        console.log(data); // Log the data for debugging
         alert("Registration Successful");
-      } else {
-        const errorData = await response.json();
-        alert(errorData.error || "Registration failed");
-      }
-    } catch (error) {
-      console.error(error);
-      alert("Registration failed");
-    }
+        // Reset form fields
+        setUserRole("");
+        setFname("");
+        setLname("");
+        setEmail("");
+        setPassword("");
+        setDistrict("");
+      })
+      .catch((error) => {
+        console.error(error);
+        alert(error.message);
+      });
   };
 
   return (
-    <div>
+    <div className="signup">
       <Navbar />
       <div className="signup-container">
         <div className="signup-inner-container">
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit}>
             <h3>Sign Up</h3>
             <div className="select-role">
               <label>Role</label>
-              <select {...register("userRole", { required: true })} required>
+              <select
+                name="userRole"
+                value={userRole}
+                onChange={(e) => setUserRole(e.target.value)}
+                required
+              >
                 <option value="">Select Role</option>
                 <option value="Farmer">Farmer</option>
                 <option value="Seller">Seller</option>
                 <option value="Deliveryman">Deliveryman</option>
               </select>
-              {errors.userRole && (
-                <span className="error">Role is required</span>
-              )}
             </div>
 
             <div className="first-name">
               <label>First name</label>
               <input
+                className="first-name-input"
                 type="text"
                 placeholder="First name"
-                {...register("fname", { required: true })}
+                onChange={(e) => setFname(e.target.value)}
+                value={fname}
               />
-              {errors.fname && (
-                <span className="error">First name is required</span>
-              )}
             </div>
 
             <div className="last-name">
               <label>Last name</label>
               <input
+                className="last-name-input"
                 type="text"
                 placeholder="Last name"
-                {...register("lname", { required: true })}
+                onChange={(e) => setLname(e.target.value)}
+                value={lname}
               />
-              {errors.lname && (
-                <span className="error">Last name is required</span>
-              )}
             </div>
 
             <div className="email">
               <label>Email address</label>
               <input
+                className="email-input"
                 type="email"
                 placeholder="Enter email"
-                {...register("email", { required: true })}
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
               />
-              {errors.email && <span className="error">Email is required</span>}
             </div>
 
             <div className="password">
               <label>Password</label>
               <input
+                className="password-input"
                 type="password"
                 placeholder="Enter password"
-                {...register("password", { required: true, minLength: 6 })}
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
               />
-              {errors.password && (
-                <span className="error">
-                  Password is required and must be at least 6 characters long
-                </span>
-              )}
             </div>
             <div className="district">
               <label>District</label>
-              <select {...register("district", { required: true })}>
+              <select
+                name="district"
+                value={district}
+                onChange={(e) => setDistrict(e.target.value)}
+                required
+              >
                 <option value="">Select District</option>
                 <option value="galle">Galle</option>
                 <option value="hambantota">Hambantota</option>
                 <option value="matara">Matara</option>
                 <option value="colombo">Colombo</option>
               </select>
-              {errors.district && (
-                <span className="error">District is required</span>
-              )}
             </div>
 
             <div className="sign-up">
-              <button type="submit" className="sign-up-button">
-                Sign Up
-              </button>
+              <button className="signup-button">Sign Up</button>
             </div>
             <p className="forgot-password text-right">
-              Already registered <Link to="/login">sign in?</Link>
+              Already registered <a href="/login">sign in?</a>
             </p>
           </form>
         </div>
-        <div className="signup-image">
+        
+      </div>
+      <FooterNew />
+    </div>
+  );
+}
+
+/*<div className="signup-image">
           <img
             src="https://assets-global.website-files.com/5d2fb52b76aabef62647ed9a/6195c8e178a99295d45307cb_allgreen1000-550.jpg"
             alt=""
             className="img-signup"
           />
-        </div>
-      </div>
-    </div>
-  );
-}
+        </div>*/

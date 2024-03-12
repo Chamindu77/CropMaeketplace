@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light fixed-top">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/homepage-registeredusers">
+        <a className="navbar-brand" href="/">
           <img
             src={process.env.PUBLIC_URL + "/Navbar/icon.png"}
             alt=""
@@ -37,7 +37,7 @@ function Navbar() {
             <li className="menu dropdown">
               <a
                 className="nav-link dropdown-toggle"
-                href="/homepage-registeredusers"
+                href="/"
                 id="navbarDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -47,22 +47,31 @@ function Navbar() {
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a className="dropdown-item" href="/regfarmer">
+                  <a className="dropdown-item" href="/farmer">
                     Farmer
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/regseller">
+                  <a className="dropdown-item" href="/seller">
                     Seller
                   </a>
                 </li>
-
+                <li>
+                  <a className="dropdown-item" href="/both">
+                    Both Farmer & Seller
+                  </a>
+                </li>
                 <li>
                   <a className="dropdown-item" href="/deliveryman">
                     Deliveryman
                   </a>
                 </li>
               </ul>
+            </li>
+            <li className="review">
+              <a className="nav-link" href="/review">
+                Review
+              </a>
             </li>
             <li className="about">
               <a className="nav-link" href="/about">
@@ -88,7 +97,7 @@ function Navbar() {
             </li>
 
             <li className="nav-item">
-              <a className="login" href="/">
+              <a className="login" href="/login">
                 Logout
               </a>
             </li>
