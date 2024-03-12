@@ -68,21 +68,6 @@
 .dropdown-item:hover {
   transform: scale(1.1);
 }
-
-.review {
-  font-size: 18px;
-  font-weight: 600;
-  color: #0c0b0b;
-  transition: transform 0.3s ease-in-out;
-  text-decoration: none;
-  margin-top: 0px;
-  margin-right: 20px;
-}
-
-.review:hover {
-  transform: scale(1.2);
-}
-
 .about {
   font-size: 18px;
   font-weight: 600;
@@ -96,8 +81,6 @@
 .about:hover {
   transform: scale(1.2);
 }
-
-
 .profile {
   font-size: 36px;
   color: #0c0b0b;

@@ -5,7 +5,11 @@ import "./RegisterPage.css";
 import Navbar from "../Navbar/Navbar";
 
 export default function SignUp() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = async (data) => {
     console.log(data);
@@ -57,16 +61,15 @@ export default function SignUp() {
             <h3>Sign Up</h3>
             <div className="select-role">
               <label>Role</label>
-              <select
-                {...register("userRole", { required: true })}
-                required
-              >
+              <select {...register("userRole", { required: true })} required>
                 <option value="">Select Role</option>
                 <option value="Farmer">Farmer</option>
                 <option value="Seller">Seller</option>
                 <option value="Deliveryman">Deliveryman</option>
               </select>
-              {errors.userRole && <span className="error">Role is required</span>}
+              {errors.userRole && (
+                <span className="error">Role is required</span>
+              )}
             </div>
 
             <div className="first-name">
@@ -76,7 +79,9 @@ export default function SignUp() {
                 placeholder="First name"
                 {...register("fname", { required: true })}
               />
-              {errors.fname && <span className="error">First name is required</span>}
+              {errors.fname && (
+                <span className="error">First name is required</span>
+              )}
             </div>
 
             <div className="last-name">
@@ -86,8 +91,9 @@ export default function SignUp() {
                 placeholder="Last name"
                 {...register("lname", { required: true })}
               />
-              {errors.lname && <span className="error">Last name is required</span>}
-              
+              {errors.lname && (
+                <span className="error">Last name is required</span>
+              )}
             </div>
 
             <div className="email">
@@ -107,20 +113,24 @@ export default function SignUp() {
                 placeholder="Enter password"
                 {...register("password", { required: true, minLength: 6 })}
               />
-              {errors.password && <span className="error">Password is required and must be at least 6 characters long</span>}
+              {errors.password && (
+                <span className="error">
+                  Password is required and must be at least 6 characters long
+                </span>
+              )}
             </div>
             <div className="district">
               <label>District</label>
-              <select
-                {...register("district", { required: true })}
-              >
+              <select {...register("district", { required: true })}>
                 <option value="">Select District</option>
                 <option value="galle">Galle</option>
                 <option value="hambantota">Hambantota</option>
                 <option value="matara">Matara</option>
                 <option value="colombo">Colombo</option>
               </select>
-              {errors.district && <span className="error">District is required</span>}
+              {errors.district && (
+                <span className="error">District is required</span>
+              )}
             </div>
 
             <div className="sign-up">
@@ -144,4 +154,3 @@ export default function SignUp() {
     </div>
   );
 }
-
