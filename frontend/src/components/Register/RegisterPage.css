@@ -1,38 +1,25 @@
-.signup {
-  height: 100%;
-  flex: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-self: center;
-  margin-top: 70px;
-  background-image: url("https://blog.machinefinder.com/wp-content/uploads/2012/04/Crops-1-istockphoto.jpg");
-  background-size: 60%; /* or contain, or specify custom size */
-}
-
-
 .signup-container {
-  display: flex; /* Use flexbox for layout */
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  max-width: 700px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
-  /*margin-top: 90px;*/
+  margin-top: 90px;
 }
 
 .signup-inner-container {
-  width: 60%; /* Take up half of the container */
-  padding-right: 0px; /* Add some spacing */
+  width: 50%;
+  padding-right: 25px;
 }
 
 .signup-image {
-  width: 40%; /* Take up half of the container */
-  text-align: center; /* Center the image horizontally */
+  width: 40%;
+  text-align: center;
 }
 
 .img-signup {
@@ -41,36 +28,16 @@
   height: 450px;
   border-radius: 26px;
   margin-left: 20px;
-  /* Ensure the image doesn't overflow */
 }
+
 .signup-inner-container h3 {
-  margin-top: 30px;
   margin-bottom: 20px;
   color: #333;
   text-align: center;
 }
 
 .select-role select,
-.district select {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-  margin-bottom: 15px;
-}
-
-.first-name label,
-.last-name label,
-.email label,
-.password label,
-.district label,
-.select-role label {
-  margin-left: 10px;
-  margin-bottom: 5px;
-}
-
+.district select,
 .first-name input,
 .last-name input,
 .email input,
@@ -84,24 +51,22 @@
   margin-bottom: 15px;
 }
 
-.first-name ::placeholder,
-.last-name ::placeholder,
-.email ::placeholder,
-.password ::placeholder {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-
-  border-radius: 5px;
-  box-sizing: border-box;
-  margin-bottom: 15px;
+.select-role label,
+.first-name label,
+.last-name label,
+.email label,
+.password label,
+.district label {
+  margin-left: 10px;
+  margin-bottom: 5px;
 }
 
-.sign-up {
-  margin-left: 0;
+.error {
+  color: red;
+  font-size: 14px;
 }
 
-.signup-button {
+.sign-up-button {
   width: 100%;
   padding: 10px 70px;
   font-size: 16px;
@@ -111,6 +76,7 @@
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
+  margin-left: 150px;
 }
 
 .sign-up-button:hover {
