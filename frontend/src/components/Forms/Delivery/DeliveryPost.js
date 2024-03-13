@@ -1,0 +1,127 @@
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEraser, faMobileAlt, faPhoneAlt, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../Seller/sellerProduct.css';
+
+const DeliveryPost = () => {
+  const modeloptions = ['Van', 'Small Truck', 'Stake bed Truck', 'Flatbed Truck', 'Chiller Truck'];
+  const districts = ['Galle', 'Hambantota', 'Matara', 'Kalutara', 'Colombo', 'Gampaha', 'Kandy', 'Matale', 'Nuwara Eliya', 'Jaffna', 'Mannar', 'Vavuniya', 'Mullaitivu', 'Kilinochchi', 'Batticaloa', 'Ampara', 'Trincomalee', 'Kurunegala', 'Puttalam', 'Anuradhapura', 'Polonnaruwa', 'Badulla', 'Monaragala', 'Ratnapura', 'Kegalle'];
+
+  const [selectedModel, setSelectedModel] = useState('');
+  const [selectedDistrict, setSelectedDistrict] = useState('');
+  const [price, setPrice] = useState('');
+  const [landline, setLandline] = useState('');
+  const [mobile, setMobile] = useState('');
+  const [email, setEmail] = useState('');
+  const [address, setAddress] = useState('');
+
+  const handleSelectChange = (event, setFunction) => {
+    setFunction(event.target.value);
+  };
+
+  const handleClear = () => {
+    setSelectedModel('');
+    setSelectedDistrict('');
+    setPrice('');
+    setLandline('');
+    setMobile('');
+    setEmail('');
+    setAddress('');
+  };
+
+  const handleSubmit = () => {
+    // Implement your form submission logic here
+    console.log('Form Submitted!');
+    // You can also reset the form after submission if needed
+    handleClear();
+  };
+
+  return (
+    <div>
+    <div className="container mt-4"></div>
+    <form className="container mt-5">
+    <div className="border p-4 rounded">
+      <div className="text-center mb-4">
+        <h2>Create Your Post</h2>
+      </div>
+      
+      <div className="row align-items-center mb-3">
+        <label htmlFor="modelDropdown" className="col-sm-3 col-form-label">Vehicle Model:</label>
+        <div className="col-sm-4">
+          <select id="modelDropdown" className="form-select" value={selectedModel} onChange={(e) => setSelectedModel(e.target.value)}>
+            <option value="">Select Model</option>
+            {modeloptions.map((option, index) => (
+              <option key={index} value={option}>{option}</option>
+            ))}
+          </select>
+        </div>
+        <label htmlFor="districtDropdown" className="col-sm-3 col-form-label">District:</label>
+        <div className="col-sm-4">
+          <select id="districtDropdown" className="form-select" value={selectedDistrict} onChange={(e) => setSelectedDistrict(e.target.value)}>
+            <option value="">Select District</option>
+            {districts.map((district, index) => (
+              <option key={index} value={district}>{district}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      <div className="mb-3 row align-items-center">
+        <label htmlFor="price" className="col-sm-3 col-form-label">Price:</label>
+        <div className="col-sm-4">
+          <div className="input-group input-group-sm">
+            <input type="number" id="price" className="form-control" value={price} onChange={(e) => setPrice(e.target.value)} />
+            <span className="input-group-text bg-light">per km</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="mb-3 row align-items-center">
+        <label htmlFor="phone" className="col-sm-3 col-form-label">Phone No:</label>
+        <div className="col-sm-4">
+          <div className="input-group input-group-sm">
+            <span className="input-group-text"><FontAwesomeIcon icon={faPhoneAlt} /></span>
+            <input type="tel" id="landline" className="form-control" value={landline} onChange={(e) => setLandline(e.target.value)} placeholder="Landline" />
+          </div>
+        </div>
+        <div className="col-sm-4">
+          <div className="input-group input-group-sm">
+            <span className="input-group-text"><FontAwesomeIcon icon={faMobileAlt} /></span>
+            <input type="tel" id="mobile" className="form-control" value={mobile} onChange={(e) => setMobile(e.target.value)} placeholder="Mobile" />
+          </div>
+        </div>
+      </div>
+
+      <div className="mb-3 row align-items-center">
+        <label htmlFor="email" className="col-sm-3 col-form-label">Email:</label>
+        <div className="col-sm-6">
+          <input type="email" id="email" className="form-control form-control-sm" value={email} onChange={(e) => setEmail(e.target.value)} />
+        </div>
+      </div>
+
+      <div className="mb-3 row align-items-center">
+        <label htmlFor="address" className="col-sm-3 col-form-label">Address:</label>
+        <div className="col-sm-9">
+          <input type="text" id="address" className="form-control form-control-sm" value={address} onChange={(e) => setAddress(e.target.value)} />
+        </div>
+      </div>
+
+      <div className="container mt-3"></div>
+       <div className="mb-3 row">
+            <div className="col-sm-12 d-flex justify-content-end">
+              <button type="button" className="btn btn-secondary btn-sm me-3" onClick={handleClear} >
+                <FontAwesomeIcon icon={faEraser} /> Clear
+              </button>
+              <button type="button" className="btn btn-success btn-sm" onClick={handleSubmit} >
+                <FontAwesomeIcon icon={faPlusCircle} /> Add Post
+              </button>
+            </div>
+        </div>
+        </div>
+    </form>
+    </div>
+  );
+};
+
+export default DeliveryPost;
