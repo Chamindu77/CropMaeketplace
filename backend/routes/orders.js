@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const FarmerOrder = require("../model/Order");
 
-//http://localhost:8070/order/add
+//framerorer
+//http://localhost:8070/farmerorder/add
 router.route("/add").post((req, res) => {
   const name = req.body.name;
   const item = req.body.item;
