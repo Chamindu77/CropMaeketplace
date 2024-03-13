@@ -2,6 +2,10 @@ import "./login.css";
 import React, { useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import FooterNew from "../Footer/FooterNew";
+import video from "../../Assests/LoginAndRegister/loginn.mp4";
+import logo from "../../Assests/LoginAndRegister/logo.png";
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { faUserShield } from "@fortawesome/free-solid-svg-icons";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -69,19 +73,33 @@ function Login() {
     <div>
       <Navbar />
       <div className="login-container">
-        <div className="login-image">
-          <img
-            src="https://assets-global.website-files.com/5d2fb52b76aabef62647ed9a/6195c8e178a99295d45307cb_allgreen1000-550.jpg"
-            alt=""
-            className="img-login"
-          />
+        <div className="left-side">
+          <div className="login-video">
+            <video src={video} autoPlay muted loop />
+          </div>
+          <div className="text-login">
+            <h2>
+              Buy, Sell and Deliver <br />
+              Extraordinary Products
+            </h2>
+          </div>
+          <div className="text-register">
+            <p>
+              Still you don't have an account...?{" "}
+              <a href="/register">Sign Up</a>
+            </p>
+          </div>
         </div>
         <div className="login-inner-container">
           <form onSubmit={handleSubmit}>
-            <h3>Sign In</h3>
+            <div className="salutaion">
+              <img src={logo} alt="" className="img-logo" />
+              <h3 className="sign-in-text">Welcome Back!</h3>
+            </div>
 
             <div className="email">
               <label>Email address</label>
+
               <input
                 type="email"
                 className="form-control"
@@ -125,10 +143,6 @@ function Login() {
                 Submit
               </button>
             </div>
-
-            <p className="text-register">
-              Don't have an account? <a href="/register">Sign Up</a>
-            </p>
           </form>
         </div>
       </div>

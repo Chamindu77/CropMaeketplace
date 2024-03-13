@@ -35,7 +35,7 @@ function Chat({ socket, username, room }) {
     <div className="chat-window">
       <div className="chat-header">
         <p>
-          <FontAwesomeIcon icon={faUser} /> Admin
+          <FontAwesomeIcon icon={faUser} /> {username}
         </p>
       </div>
       <div className="chat-body">

@@ -7,8 +7,8 @@ function AddProductPage() {
   const queryParams = new URLSearchParams(location.search);
   const [formData, setFormData] = useState({
     productImage: queryParams.get("image") || "",
-    category: queryParams.get("item") || "",
-    item: queryParams.get("category") || "",
+    category: queryParams.get("category") || "",
+    item: queryParams.get("item") || "",
     quantity: "",
     price: "",
     district: "",
@@ -47,10 +47,31 @@ function AddProductPage() {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Ensure preventDefault is called on the event object
+
     console.log("Form submitted:", formData);
-    // You can handle form submission logic here, like sending data to the backend
+
+    try {
+      const response = await fetch("http://localhost:8070/farmerorder/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData), // Use formData directly
+      });
+
+      if (response.ok) {
+        alert("Order Placed Successfully");
+      } else {
+        const errorData = await response.json();
+        alert(errorData.error || "Order placing failed");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Order placing failed");
+    }
   };
 
   const fetchItems = (category) => {
@@ -79,16 +100,6 @@ function AddProductPage() {
         )}
 
         <div className="input-field-container">
-          <p>Product Category</p>
-        </div>
-        <input
-          type="text"
-          name="category"
-          placeholder="Product Category"
-          value={formData.category}
-          onChange={handleChange}
-        />
-        <div className="input-field-container">
           <p>Product Item</p>
         </div>
         <input
@@ -96,6 +107,17 @@ function AddProductPage() {
           name="item"
           placeholder="Product Item"
           value={formData.item}
+          onChange={handleChange}
+        />
+
+        <div className="input-field-container">
+          <p>Product Category</p>
+        </div>
+        <input
+          type="text"
+          name="category"
+          placeholder="Product Category"
+          value={formData.category}
           onChange={handleChange}
         />
         <div className="input-field-container">
@@ -109,7 +131,7 @@ function AddProductPage() {
           onChange={handleChange}
         />
         <div className="input-field-container">
-          <p>Price (Rs.)</p>
+          <p>Price (Rs. Per kg)</p>
         </div>
         <input
           type="number"

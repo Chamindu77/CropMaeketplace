@@ -12,7 +12,7 @@ function ChatWithAdmin() {
 
   const joinRoom = () => {
     if (username !== "" && room !== "") {
-      socket.emit("join_room", room);
+      socket.emit("join_room");
       setShowChat(true);
     }
   };
@@ -22,6 +22,7 @@ function ChatWithAdmin() {
       {!showChat ? (
         <div className="joinChatContainer">
           <h4>Request A New Product</h4>
+
           <input
             type="text"
             placeholder="Username..."
@@ -29,13 +30,15 @@ function ChatWithAdmin() {
               setUsername(event.target.value);
             }}
           />
+
           <input
             type="text"
-            placeholder="Admin.."
+            placeholder="Room..."
             onChange={(event) => {
               setRoom(event.target.value);
             }}
           />
+
           <button onClick={joinRoom}>Join A Room</button>
         </div>
       ) : (
