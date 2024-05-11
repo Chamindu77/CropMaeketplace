@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FarmerPage from "./components/FarmerPage/FarmerPage";
 import ProductPage from "./components/ProductPage/ProductPage";
 import HomePage from "./components/HomePage/HomePage";
@@ -27,10 +27,12 @@ import RegOtherPage from "./components/AfterRegistered/RegOtherPage/RegOtherPage
 import RegSpicesPage from "./components/AfterRegistered/RegSpicesPage/RegSpicesPage";
 import RegGrainsPage from "./components/AfterRegistered/RegGrainsPage/RegGrainsPage";
 import ChatWithAdmin from "./components/ChatWithAdmin/ChatWithAdmin";
+import RegSeller from "./components/AfterRegistered/RegSellerPage/RegSellerPage";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/farmer" element={<FarmerPage />} />
@@ -57,8 +59,10 @@ function App() {
         <Route path="/regspices" element={<RegSpicesPage />} />
         <Route path="/regother" element={<RegOtherPage />} />
         <Route path="/contactadmin" element={<ChatWithAdmin />} />
+        <Route path="/regseller" element={<RegSeller />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 

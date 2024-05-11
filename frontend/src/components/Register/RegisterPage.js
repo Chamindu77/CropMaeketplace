@@ -1,8 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./RegisterPage.css";
 import Navbar from "../Navbar/Navbar";
+import video from "../../Assests/LoginAndRegister/loginn.mp4";
+import logo from "../../Assests/LoginAndRegister/logo.png";
 
 export default function SignUp() {
   const {
@@ -41,14 +45,14 @@ export default function SignUp() {
       });
 
       if (response.ok) {
-        alert("Registration Successful");
+        toast.success("Registration Successful");
       } else {
         const errorData = await response.json();
-        alert(errorData.error || "Registration failed");
+        toast.error(errorData.error || "Registration failed");
       }
     } catch (error) {
       console.error(error);
-      alert("Registration failed");
+      toast.error("Registration failed");
     }
   };
 
@@ -58,10 +62,16 @@ export default function SignUp() {
       <div className="signup-container">
         <div className="signup-inner-container">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <h3>Sign Up</h3>
+            <div className="salutaion">
+              <img src={logo} alt="" className="img-logo-reg" />
+              <h3 className="sign-in-text">Let Us Know You!</h3>
+            </div>
             <div className="select-role">
-              <label>Role</label>
-              <select {...register("userRole", { required: true })} required>
+              <select
+                data-testid="user-role"
+                {...register("userRole", { required: true })}
+                required
+              >
                 <option value="">Select Role</option>
                 <option value="Farmer">Farmer</option>
                 <option value="Seller">Seller</option>
@@ -79,6 +89,7 @@ export default function SignUp() {
                 placeholder="First name"
                 {...register("fname", { required: true })}
               />
+
               {errors.fname && (
                 <span className="error">First name is required</span>
               )}
@@ -119,38 +130,44 @@ export default function SignUp() {
                 </span>
               )}
             </div>
-            <div className="district">
-              <label>District</label>
-              <select {...register("district", { required: true })}>
-                <option value="">Select District</option>
-                <option value="galle">Galle</option>
-                <option value="hambantota">Hambantota</option>
-                <option value="matara">Matara</option>
-                <option value="colombo">Colombo</option>
-              </select>
-              {errors.district && (
-                <span className="error">District is required</span>
-              )}
-            </div>
+            <label>District</label>
+            <select
+              data-testid="district-select"
+              {...register("district", { required: true })}
+            >
+              <option value="">Select District</option>
+              <option value="galle">Galle</option>
+              <option value="hambantota">Hambantota</option>
+              <option value="matara">Matara</option>
+              <option value="colombo">Colombo</option>
+            </select>
+            {errors.district && (
+              <span className="error">District is required</span>
+            )}
 
             <div className="sign-up">
               <button type="submit" className="sign-up-button">
                 Sign Up
               </button>
             </div>
-            <p className="forgot-password text-right">
-              Already registered <Link to="/login">sign in?</Link>
-            </p>
           </form>
         </div>
-        <div className="signup-image">
-          <img
-            src="https://assets-global.website-files.com/5d2fb52b76aabef62647ed9a/6195c8e178a99295d45307cb_allgreen1000-550.jpg"
-            alt=""
-            className="img-signup"
-          />
+        <div className="signup-video">
+          <video src={video} muted loop autoPlay />
         </div>
       </div>
+      <div className="text-signup">
+        <h2>
+          Buy, Sell and Deliver <br />
+          Extraordinary Products
+        </h2>
+      </div>
+      <div className="text-loginn">
+        <p>
+          Already a CropXchange user...? <Link to="/login">sign in</Link>
+        </p>
+      </div>
+      <ToastContainer />
     </div>
   );
 }

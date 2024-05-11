@@ -207,9 +207,9 @@
   margin-bottom: 5px;
 }
 
-.cart-button,
+.cart-button-link,
 .supply-button {
-  display: block;
+  display: inline-block;
   margin-top: 10px;
   padding: 10px 15px;
   border: none;
@@ -218,6 +218,8 @@
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out; /* smooth transition on hover */
+  text-decoration: none;
+  margin-right: 20px;
 }
 
 .cart-button:hover,

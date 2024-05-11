@@ -68,7 +68,7 @@ function RegUserHomePage() {
         className="crop"
       />
       <div className="salutaion-container">
-        <h2>Hello Firstname, </h2>
+        <h2>Hello CropXchange Member, </h2>
       </div>
 
       <div className="profile-container">
@@ -86,7 +86,7 @@ function RegUserHomePage() {
             alt="Seller"
             className="profile-img"
           />
-          <p className="section-name">Framer Section</p>
+          <p className="section-name">Seller Section</p>
         </a>
         <a className="profile" href="/regdeliveryman">
           <img
@@ -94,7 +94,7 @@ function RegUserHomePage() {
             alt="Deliveryman"
             className="profile-img"
           />
-          <p className="section-name">Framer Section</p>
+          <p className="section-name">Deliveryman Section</p>
         </a>
       </div>
 

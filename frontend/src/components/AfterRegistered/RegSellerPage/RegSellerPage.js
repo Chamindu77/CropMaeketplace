@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import "./RegFarmerPage.css";
-import NavbarRegistered from "../../NavbarRegistered/NavbarRegistered";
+//import { Link } from "react-router-dom";
+import "./RegSellerPage.css";
+import Navbar from "../../Navbar/Navbar";
 import FooterNew from "../../Footer/FooterNew";
-import RegCategories from "../../AfterRegistered/RegCatoegories/RegCategories";
+import Categories from "../RegCatoegories/RegCategories";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
@@ -14,11 +14,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import TypeWriter from "../../AutoWritingText/TypeWriter";
 
-function RegFarmerPage() {
+function FarmerPage() {
   const [sellerOrders, setSellerOrders] = useState([]);
   const [farmerOrders, setFarmerOrders] = useState([]);
   const [deliveryPosts, setDeliveryPosts] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     const fetchSellerOrders = async () => {
@@ -50,41 +49,17 @@ function RegFarmerPage() {
         console.error("Error fetching seller orders:", error);
       }
     };
-
     fetchSellerOrders();
     fetchFarmerOrders();
     fetchDeliveryPosts();
   }, []);
-
-  const addToCart = async (item) => {
-    console.log(item);
-    try {
-      const response = await fetch("http://localhost:8070/cart/add", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(item),
-      });
-      if (!response.ok) {
-        throw new Error("Failed to add item to cart.");
-      }
-      // Update the cartItems state to reflect the added item
-      setCartItems([...cartItems, item]);
-      //alert("Item added to cart successfully!");
-    } catch (error) {
-      console.error("Error adding item to cart:", error);
-      alert("Failed to add item to cart. Please try again later.");
-    }
-  };
-
   return (
     <div>
-      <NavbarRegistered />
+      <Navbar />
       <div className="nothing"></div>
       <div className="crop-container">
         <img
-          src="https://www.abers-tourisme.com/assets/uploads/sites/8/2022/12/vente-legumes.jpg"
+          src="https://static.vecteezy.com/system/resources/previews/027/186/276/large_2x/latin-man-in-an-apron-in-a-greengrocer-s-shop-looking-at-the-camera-free-photo.jpg"
           alt=""
           className="crop-image"
         />
@@ -92,7 +67,7 @@ function RegFarmerPage() {
 
       <div className="type-writer-container">
         <TypeWriter
-          text="Welcome Farmers!"
+          text="Welcome Sellers!"
           loop={false}
           className="writer"
           textStyle={{
@@ -101,6 +76,7 @@ function RegFarmerPage() {
           }}
         />
       </div>
+
       {/* 
       <div className="topic">
         <p>Product Categories</p>
@@ -108,7 +84,7 @@ function RegFarmerPage() {
       */}
       <div className="categories-container">
         <div className="categories-div">
-          <RegCategories />
+          <Categories />
         </div>
       </div>
       <div className="nothing2"></div>
@@ -119,7 +95,7 @@ function RegFarmerPage() {
       <div className="orders-wrapper">
         <div className="orders-container">
           {sellerOrders.slice(0, 4).map((order, index) => (
-            <div key={index} className="order-item1">
+            <div key={index} className="order-item">
               <img
                 src={order.productImage}
                 alt={order.item}
@@ -130,18 +106,9 @@ function RegFarmerPage() {
               <p>Price: Rs.{order.price}</p>
               <p>Posted Date: {order.postedDate}</p>
               <p>Expires Date: {order.expireDate}</p>
-              <p>Owner: {order.name}</p>
-              <Link
-                to={{
-                  pathname: "/cart",
-                  state: { item: { ...order, _id: undefined } }, // Pass item data as state
-                }}
-                className="cart-button-link"
-                onClick={() => addToCart(order)}
-              >
+              <button className="cart-button">
                 <FontAwesomeIcon icon={faShoppingCart} /> Add to Cart
-              </Link>
-
+              </button>
               <button className="supply-button">
                 <FontAwesomeIcon icon={faTruck} /> Supply
               </button>
@@ -174,16 +141,17 @@ function RegFarmerPage() {
               <p>Price: Rs.{order.price}</p>
               <p>Posted Date: {order.postedDate}</p>
               <p>Expires Date: {order.expireDate}</p>
-              <p>Owner: {order.name}</p>
-
+              <button className="cart-button">
+                <FontAwesomeIcon icon={faShoppingCart} /> Add to Cart
+              </button>
               <button className="supply-button">
-                <FontAwesomeIcon icon={faInfoCircle} /> More Details
+                <FontAwesomeIcon icon={faShoppingBag} /> Buy Now
               </button>
             </div>
           ))}
         </div>
         {farmerOrders.length > 4 && (
-          <a href="/farmerorder" className="view-all-button1">
+          <a href="/farmerorder" className="view-all-button">
             <FontAwesomeIcon icon={faChevronRight} className="arrow-icon" />
           </a>
         )}
@@ -206,8 +174,9 @@ function RegFarmerPage() {
               <p>Capacity: {order.capacity} kg</p>
               <p>Price: Rs.{order.price}/km</p>
               <p>Posted Date: {order.postedDate}</p>
-              <p>Owner: {order.name}</p>
-
+              <button className="cart-button">
+                <FontAwesomeIcon icon={faShoppingCart} /> Add to Cart
+              </button>
               <button className="supply-button">
                 <FontAwesomeIcon icon={faInfoCircle} /> More Details
               </button>
@@ -215,7 +184,7 @@ function RegFarmerPage() {
           ))}
         </div>
         {deliveryPosts.length > 4 && (
-          <a href="/deliverypost" className="view-all-button1">
+          <a href="/deliverypost" className="view-all-button">
             <FontAwesomeIcon icon={faChevronRight} className="arrow-icon" />
           </a>
         )}
@@ -226,4 +195,4 @@ function RegFarmerPage() {
   );
 }
 
-export default RegFarmerPage;
+export default FarmerPage;

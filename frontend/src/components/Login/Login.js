@@ -73,23 +73,21 @@ function Login() {
     <div>
       <Navbar />
       <div className="login-container">
-        <div className="left-side">
-          <div className="login-video">
-            <video src={video} autoPlay muted loop />
-          </div>
-          <div className="text-login">
-            <h2>
-              Buy, Sell and Deliver <br />
-              Extraordinary Products
-            </h2>
-          </div>
-          <div className="text-register">
-            <p>
-              Still you don't have an account...?{" "}
-              <a href="/register">Sign Up</a>
-            </p>
-          </div>
+        <div className="login-video">
+          <video src={video} autoPlay muted loop />
         </div>
+        <div className="text-login">
+          <h2>
+            Buy, Sell and Deliver <br />
+            Extraordinary Products
+          </h2>
+        </div>
+        <div className="text-register">
+          <p>
+            Still you don't have an account...? <a href="/register">Sign Up</a>
+          </p>
+        </div>
+
         <div className="login-inner-container">
           <form onSubmit={handleSubmit}>
             <div className="salutaion">

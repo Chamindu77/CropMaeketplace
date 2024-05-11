@@ -13,13 +13,14 @@ function Chat({ socket, username, room }) {
         room: room,
         author: username,
         message: currentMessage,
-        time:
-          new Date(Date.now()).getHours() +
-          ":" +
-          new Date(Date.now()).getMinutes(),
+        time: new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        }), // Format time HH:MM
       };
 
       await socket.emit("send_message", messageData);
+      // Assuming the server echoes the message back, we add it to the message list directly
       setMessageList((list) => [...list, messageData]);
       setCurrentMessage("");
     }

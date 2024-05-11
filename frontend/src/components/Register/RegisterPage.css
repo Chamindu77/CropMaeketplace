@@ -17,9 +17,81 @@
   padding-right: 25px;
 }
 
-.signup-image {
-  width: 40%;
+.signup-video {
+  width: 50%;
   text-align: center;
+}
+
+.signup-video {
+  position: relative;
+  display: flex;
+  flex-basis: 50%;
+  width: 70%;
+  height: 100%;
+
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.signup-video video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 10px;
+}
+
+.text-signup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(5%, -108%);
+  z-index: 10;
+  text-align: center;
+}
+
+.text-signup h2 {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.text-loginn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(24%, 767%);
+  z-index: 10;
+  text-align: center;
+}
+
+.text-loginn p {
+  color: white;
+  font-size: 18px;
+}
+
+.text-loginn a {
+  color: #79ac78;
+  font-size: 20px;
+  padding: 5px 30px;
+  background-color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 18px;
+}
+.img-logo-reg {
+  width: 45px;
+  height: 45px;
+  margin-left: 200px;
+  align-items: center;
+  justify-content: center;
 }
 
 .img-signup {
